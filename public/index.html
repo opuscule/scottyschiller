@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Scott Schiller</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+		<style>
+			@font-face {
+			  font-family: 'hatton';
+			  src:  url('assets/hatton-regular.woff') format('woff'),
+					url('assets/hatton-regular.ttf')  format('truetype');
+			}
+			:root {
+			  --bluebg: #1C294F;
+			  --body-on-lightbg: #172B52;
+			  --body-on-darkbg: #A0BBD7;
+			}
+			body, html { font-family: 'Manrope', sans-serif; color: var(--body-on-lightbg); }
+			h1, h2, h3, h4, h5, h6 { font-family: 'hatton', serif; }
+			.darkbg { background-color: var(--bluebg); }
+			.text_on_darkbg { color: var(--body-on-darkbg); }
+			.sslogo { font-family: 'Manrope',sans-serif; font-weight: 800; font-size: 1.5rem; line-height: 1; }
+				.sslogo span { color: var(--body-on-darkbg); }
+			header#header { background-image: url('assets/ss-banner-bg.jpg'); background-size: cover; background-position: center bottom;  }
+			
+			.my_articles { display:flex; gap:1.5rem; overflow-x: scroll; }
+			.each_article { text-decoration: none; min-width:18rem; }
+			.article_card { background-size: cover; background-position: center top; height: 28.5rem; position: relative; background-color: #0E2044; z-index: 0; }
+			.card_overlay { position: absolute; content:""; top: 0; width: 100%; height: 50%; background: linear-gradient(#293C60, rgba(41, 60, 96, 0)); z-index: -1; }
+			
+			.article_source,
+			.article_date { color: var(--body-on-darkbg); }
+			.article_title { color: var(--body-on-darkbg); font-size: 1.5rem; line-height: 1.2; }
+		</style>
+	</head>
+<body>
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<nav class="navbar navbar-expand-lg d-flex justify-content-between">
+						<div class="sslogo text-white"><span>Scott</span><br>Schiller</div>
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+						  <span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarScroll">
+						  <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+							<li class="nav-item">
+							  <a class="nav-link active" aria-current="page" href="#">Home</a>
+							</li>
+							<li class="nav-item">
+							  <a class="nav-link" href="#">Link</a>
+							</li>
+							
+						  </ul>
+						</div>
+					</nav>
+					<h1 class="text-center text-light">Scott Schiller</h1>
+					<h5 class="text-center text-light">Catalyst For <strong>Growth</strong></h5>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<section class="container-fluid">
+			<div class="row d-flex">
+				<div class="col-md-4 d-flex flex-column">
+					<h3>Scott Schiller is The Consummate media executive.</h3>
+					<h3 class="mt-auto">Expert in the pivot/transformation of business models across disparate organizations.</h3>
+				</div>
+				<div class="col-md-8">
+					<p>He brings a hands-on experience career in marketing, sales management, and media sales roles and a seasoned perspective on the intersection of content, media, technology, and data.</p>
+					<p>Currently, he is the outgoing Global Chief Commercial Officer at Big Village, a global advertising, technology, and data company based in New York City, as well as an adjunct assistant professor in the Entertainment, Media and Technology program at Stern/NYU.</p>
+					<p>Scott has been part of many Fortune 50 companies, including AOL, MTV Networks, The Walt Disney Company, and ten years at Comcast/NBCUniversal. At Comcast/NBCU, built the Company's digital video advertising sales team positioned for the explosive growth of CTV/OTT.</p>
+					<p>Schiller is a co-founder, long-time board member, and former Chairman of <a href="https://www.iab.com/" target="_blank" rel="nofollow noopener" title="The Interactive Advertising Bureau">The Interactive Advertising Bureau</a> as part of a small group of industry leaders who, 25 years ago, imagined the future business opportunity for digital media.</p>
+					<p>Schiller earned a BA in Economics from Cornell University and has an MBA in Marketing and Finance from the Kellogg School of Management at Northwestern University.</p>
+				</div>
+			</div>
+		</section>
+		
+		<section class="darkbg">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6">
+						<picture>
+							<img src="assets/about-img.jpg" alt="Scott Schiller at NYU Stern" class="img-fluid" />
+						</picture>
+					</div>
+					<div class="col-md-5 offset-md-1">
+						<h2 class="text_on_darkbg">Adjunct Professor</h2>
+						<p class="text_on_darkbg">Scott Schiller is an adjunct assistant professor at Stern/NYU and long-time media executive.</p>
+						<p class="text_on_darkbg">He brings a hands-on experience career in marketing, sales management, and media sales roles and a seasoned perspective on the intersection of content, media, technology, and data.</p>
+						<h4>Courses Taught</h4>
+						<p class="text_on_darkbg">Technology's Impact on Entertainment and Media</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="darkbg">
+			<div class="container-fluid pt-5">
+				<div class="row">
+					<div class="col">
+						<h3 class="text_on_darkbg">My Articles</h3>
+					</div>
+				</div>
+			</div>
+			
+			<div class="my_articles">
+				<a href="#" target="_blank" class="each_article">
+					<div class="article_card" style="background-image:url('https://picsum.photos/440/710');">
+						<div class="card_overlay"></div>
+						<div class="article_source pt-3 px-4 fw-bold fs-3">Lorem Ipsum</div>
+						<div class="article_date px-4 pb-3">6/15/22</div>
+					</div>
+					<div class="article_title mt-3">Scott Schiller: CTV is not the future of TV (It is TV)</div>
+				</a>
+				<a href="#" target="_blank" class="each_article">
+					<div class="article_card" style="background-image:url('https://picsum.photos/450/700');">
+						<div class="card_overlay"></div>
+						<div class="article_source pt-3 px-4 fw-bold fs-3">LinkedIn</div>
+						<div class="article_date px-4 pb-3">4/9/22</div>
+					</div>
+					<div class="article_title mt-3">A Bright Future Awaits TV Advertisers That Put Consumers</div>
+				</a>
+				<a href="#" target="_blank" class="each_article">
+					<div class="article_card" style="background-image:url('https://picsum.photos/442/705');">
+						<div class="card_overlay"></div>
+						<div class="article_source pt-3 px-4 fw-bold fs-3">Lorem Ipsum</div>
+						<div class="article_date px-4 pb-3">6/15/22</div>
+					</div>
+					<div class="article_title mt-3">Scott Schiller: CTV is not the future of TV (It is TV)</div>
+				</a>
+			</div>
+			
+			<div class="articles">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+				  <div class="swiper-wrapper" style="color:#FFF;">
+					<div class="swiper-slide">Slide 1</div>
+					<div class="swiper-slide">Slide 2</div>
+					<div class="swiper-slide">Slide 3</div>
+					<div class="swiper-slide">Slide 4</div>
+					<div class="swiper-slide">Slide 5</div>
+					<div class="swiper-slide">Slide 6</div>
+					<div class="swiper-slide">Slide 7</div>
+					<div class="swiper-slide">Slide 8</div>
+					<div class="swiper-slide">Slide 9</div>
+				  </div>
+				  <div class="swiper-pagination"></div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="container-fluid">
+			<div class="row">
+				<div class="col-md-5">
+					<h2>Philanthropic, Giving-Back, Alumni Engagements, Mentorship</h2>
+				</div>
+				<div class="col-md-7">
+					icons &amp; lists
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					<p>Scott<br>Schiller</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-5">
+					<div class="row">
+						<div class="col-md-5">
+							<ul>
+								<li><a href="#">About</a></li>
+								<li><a href="#">The Latest</a></li>
+							</ul>
+						</div>
+						<div class="col-md-5">
+							<ul>
+								<li><a href="#">Philanthropy</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-7">
+					<h2>Let's Talk</h2>
+					<h3><a href="mailto:hello@scottyschiller.com">hello@scottyschiller.com</a></h3>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+	<script>
+	  var swiper = new Swiper(".mySwiper", {
+		slidesPerView: 4,
+		spaceBetween: 30,
+		centeredSlides: true,
+		pagination: {
+		  el: ".swiper-pagination",
+		  clickable: true,
+		},
+	  });
+	</script>
+</body>
+</html>
