@@ -160,21 +160,46 @@
 				<div class="row" style="overflow-x: auto;">
 					<div class="col" style="overflow-x: auto;">
 						<div class="my_articles" style="overflow-x: scroll; width: fit-content;">
-							
-							
-							{%- for my_articles in collections.all | reverse -%}
-							<a href="{{ my_articles.data.link }}" target="_blank" rel="noopener nofollow" class="each_article">
-								<!-- if logo == true -->
-								
-								<div class="article_card" style="background-image:url('{{ my_articles.data.image }}');">
+							<a href="#" target="_blank" class="each_article">
+								<div class="article_card" style="background-image:url('https://picsum.photos/440/710');">
 									<div class="card_overlay"></div>
-									<div class="article_source pt-3 px-4 fw-bold fs-3">{{ my_articles.data.source }}</div>
-									<div class="article_date px-4 pb-3">{{ my_articles.date | postDate }}</div>
+									<div class="article_source pt-3 px-4 fw-bold fs-3">Lorem Ipsum</div>
+									<div class="article_date px-4 pb-3">6/15/22</div>
 								</div>
-								<div class="article_title mt-3">{{ my_articles.data.title }}</div>
+								<div class="article_title mt-3">Scott Schiller: CTV is not the future of TV (It is TV)</div>
 							</a>
-							{%- endfor -%}
-							
+							<a href="#" target="_blank" class="each_article">
+								<div class="article_card" style="background-image:url('https://picsum.photos/450/700');">
+									<div class="card_overlay"></div>
+									<div class="article_source pt-3 px-4 fw-bold fs-3">LinkedIn</div>
+									<div class="article_date px-4 pb-3">4/9/22</div>
+								</div>
+								<div class="article_title mt-3">A Bright Future Awaits TV Advertisers That Put Consumers</div>
+							</a>
+							<a href="#" target="_blank" class="each_article">
+								<div class="article_card" style="background-image:url('https://picsum.photos/442/705');">
+									<div class="card_overlay"></div>
+									<div class="article_source pt-3 px-4 fw-bold fs-3">Lorem Ipsum</div>
+									<div class="article_date px-4 pb-3">6/15/22</div>
+								</div>
+								<div class="article_title mt-3">Scott Schiller: CTV is not the future of TV (It is TV)</div>
+							</a>
+							<a href="#" target="_blank" class="each_article">
+								<div class="article_card" style="background-image:url('https://picsum.photos/450/700');">
+									<div class="card_overlay"></div>
+									<div class="article_source pt-3 px-4 fw-bold fs-3">LinkedIn</div>
+									<div class="article_date px-4 pb-3">4/9/22</div>
+								</div>
+								<div class="article_title mt-3">A Bright Future Awaits TV Advertisers That Put Consumers</div>
+							</a>
+							<a href="#" target="_blank" class="each_article">
+								<div class="article_card" style="background-image:url('https://picsum.photos/453/710');">
+									<div class="card_overlay"></div>
+									<div class="article_source pt-3 px-4 fw-bold fs-3">Lorem Ipsum</div>
+									<div class="article_date px-4 pb-3">6/15/22</div>
+								</div>
+								<div class="article_title mt-3">Scott Schiller: CTV is not the future of TV (It is TV)</div>
+							</a>
 						</div>
 					</div>
 				</div>
