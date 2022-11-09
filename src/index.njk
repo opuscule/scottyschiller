@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@opuscule 
-opuscule
-/
-scottyschiller
-Public
-Code
-Issues
-Pull requests
-1
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-scottyschiller/src/index.njk
-@opuscule
-opuscule My Articles in CMS
-Latest commit 17cbbf9 10 minutes ago
- History
- 1 contributor
-304 lines (293 sloc)  44.2 KB
-
 <!doctype html>
 <html lang="en">
 	<head>
@@ -195,6 +165,10 @@ Latest commit 17cbbf9 10 minutes ago
 							{%- for my_articles in collections.all | reverse -%}
 							<a href="{{ my_articles.data.link }}" target="_blank" rel="noopener nofollow" class="each_article">
 								<!-- if logo == true -->
+								{% if my_articles.data.logo == true %}
+								<p>yes</p>
+								{% endif %}
+
 								
 								<div class="article_card" style="background-image:url('{{ my_articles.data.image }}');">
 									<div class="card_overlay"></div>
