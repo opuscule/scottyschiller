@@ -22,6 +22,7 @@
 			  --body-on-darkbg: #A0BBD7;
 			  --cta-yellow: #FFCA3C;
 			  --body_font: 'Manrope', sans-serif;
+			  --transition_all: all 0.3s ease;
 			}
 			body, html { font-family: var(--body_font); color: var(--body-on-lightbg); }
 			h1, h2, h3, h4, h5, h6 { font-family: 'hatton', serif; }
@@ -34,7 +35,7 @@
 				.nav-link:hover,
 				.nav-link:focus { color: #FFF; }
 			.nav-link .li_icon_nav { display:block; }
-			.nav-link .li_icon_nav path { fill:var(--body-on-darkbg); transition: all 0.3s ease; }
+			.nav-link .li_icon_nav path { fill:var(--body-on-darkbg); transition: var(--transition_all); }
 				.nav-link:hover .li_icon_nav path,
 				.nav-link:focus .li_icon_nav path { fill:#FFF; }
 			header#header { background-image: url('assets/ss-banner-bg.jpg'); background-size: cover; background-position: center center; min-height: 100vh; }
@@ -44,9 +45,11 @@
 					header#header h1 span { font-family: var(--body_font) !important; font-weight:300; }
 			.nyu_stern_img { margin-top:-3rem; }
 			.my_articles { display:flex; gap:1.5rem; overflow-x: scroll; }
-			.each_article { text-decoration: none; width:18rem; }
-			.article_card { background-size: cover; background-position: center top; height: 28.5rem; position: relative; background-color: #0E2044; z-index: 0; }
+			.each_article { text-decoration: none; width:18rem; transition:all 0.3s ease; }
+			.article_card { background-size: cover; background-position: center top; height: 28.5rem; position: relative; background-color: #0E2044; z-index: 0; display: flex; flex-direction: column;}
 			.card_overlay { position: absolute; content:""; top: 0; width: 100%; height: 50%; background: linear-gradient(#293C60, rgba(41, 60, 96, 0)); z-index: -1; }
+			.article_logo_wrapper { flex: 1 0 auto; display: grid; align-items: center; justify-content: center; }
+				.article_logo_wrapper img { max-width: 12rem; }
 			
 			.li_cta { background-color: rgba(160, 187, 215, 0.1); text-decoration: none; color: var(--body-on-darkbg); font-size: 1.5rem; font-weight: 800; transition: all 0.3s ease; }
 			.li_cta .li_arrow { width: 4rem; height:4rem; fill:none; background-color: rgba(0,0,0,0); }
@@ -58,8 +61,14 @@
 						.li_cta:hover .li_arrow path,
 						.li_cta:focus .li_arrow path { stroke: var(--bluebg); }
 			.article_source,
-			.article_date { color: var(--body-on-darkbg); }
-			.article_title { color: var(--body-on-darkbg); font-size: 1.5rem; line-height: 1.2; }
+			.article_date { color: var(--body-on-darkbg); transition: var(--transition_all); }
+				.each_article:hover .article_source,
+				.each_article:focus .article_source,
+				.each_article:hover .article_date,
+				.each_article:focus .article_date { color: var(--cta-yellow); }
+			.article_title { color: var(--body-on-darkbg); font-size: 1.5rem; line-height: 1.2; transition:var(--transition_all); }
+				.each_article:hover .article_title,
+				.each_article:focus .article_title { color: #FFF; }
 			
 			footer#footer { background-color: rgba(0, 63, 149, 0.05); }
 			footer#footer ul { list-style-type: none; margin:0; padding:0; }
@@ -160,73 +169,101 @@
 				<div class="row" style="overflow-x: auto;">
 					<div class="col" style="overflow-x: auto;">
 						<div class="my_articles" style="overflow-x: scroll; width: fit-content;"><a href="" target="_blank" rel="noopener nofollow" class="each_article">
-								<!-- if logo == true -->
 								
-
 								
 								<div class="article_card" style="background-image:url('');">
+								
 									<div class="card_overlay"></div>
-									<div class="article_source pt-3 px-4 fw-bold fs-3"></div>
-									<div class="article_date px-4 pb-3">11/7/2022</div>
+									<div class="article_meta_wrapper">
+										<div class="article_source pt-3 px-4 fw-bold fs-3"></div>
+										<div class="article_date px-4 pb-3">11/7/2022</div>
+									</div>
+									
+									
+									
 								</div>
 								<div class="article_title mt-3"></div>
 							</a><a href="" target="_blank" rel="noopener nofollow" class="each_article">
-								<!-- if logo == true -->
 								
-
 								
 								<div class="article_card" style="background-image:url('');">
+								
 									<div class="card_overlay"></div>
-									<div class="article_source pt-3 px-4 fw-bold fs-3"></div>
-									<div class="article_date px-4 pb-3">11/3/2022</div>
+									<div class="article_meta_wrapper">
+										<div class="article_source pt-3 px-4 fw-bold fs-3"></div>
+										<div class="article_date px-4 pb-3">11/3/2022</div>
+									</div>
+									
+									
+									
 								</div>
 								<div class="article_title mt-3"></div>
 							</a><a href="https://www.thecontinuum.online/features/scott-schiller-ctv-is-not-the-future-of-tv-it-is-tv" target="_blank" rel="noopener nofollow" class="each_article">
-								<!-- if logo == true -->
 								
-
 								
 								<div class="article_card" style="background-image:url('/assets/scott-schiller-article.png');">
+								
 									<div class="card_overlay"></div>
-									<div class="article_source pt-3 px-4 fw-bold fs-3">Continuum</div>
-									<div class="article_date px-4 pb-3">6/15/2022</div>
+									<div class="article_meta_wrapper">
+										<div class="article_source pt-3 px-4 fw-bold fs-3">Continuum</div>
+										<div class="article_date px-4 pb-3">6/15/2022</div>
+									</div>
+									
+									
+									
 								</div>
 								<div class="article_title mt-3">CTV is not the Future of TV (it IS TV)</div>
 							</a><a href="https://www.linkedin.com/pulse/bright-future-awaits-tv-advertisers-put-consumers-scott-schiller/" target="_blank" rel="noopener nofollow" class="each_article">
-								<!-- if logo == true -->
 								
-								<p>yes</p>
 								
-
+								<div class="article_card">
 								
-								<div class="article_card" style="background-image:url('/assets/gw.svg');">
 									<div class="card_overlay"></div>
-									<div class="article_source pt-3 px-4 fw-bold fs-3">Linkedin</div>
-									<div class="article_date px-4 pb-3">4/19/2022</div>
+									<div class="article_meta_wrapper">
+										<div class="article_source pt-3 px-4 fw-bold fs-3">Linkedin</div>
+										<div class="article_date px-4 pb-3">4/19/2022</div>
+									</div>
+									
+									
+									<div class="article_logo_wrapper">
+										<img src="/assets/gw.svg" alt="Linkedin" class="card_logo" />
+									</div>
+									
+									
 								</div>
 								<div class="article_title mt-3">A Bright Future Awaits TV Advertisers That Put Consumers</div>
 							</a><a href="https://www.adweek.com/sponsored/update-your-legacy-mindset-about-media-and-embrace-tv-convergence/" target="_blank" rel="noopener nofollow" class="each_article">
-								<!-- if logo == true -->
 								
-
 								
 								<div class="article_card" style="background-image:url('/assets/adweek.jpg');">
+								
 									<div class="card_overlay"></div>
-									<div class="article_source pt-3 px-4 fw-bold fs-3">AdWeek</div>
-									<div class="article_date px-4 pb-3">4/12/2022</div>
+									<div class="article_meta_wrapper">
+										<div class="article_source pt-3 px-4 fw-bold fs-3">AdWeek</div>
+										<div class="article_date px-4 pb-3">4/12/2022</div>
+									</div>
+									
+									
+									
 								</div>
 								<div class="article_title mt-3">Update Your Legacy Mindset About Media and Embrace TV Convergence</div>
 							</a><a href="https://www.forbes.com/sites/bradadgate/2021/05/04/after-a-year-of-media-disruption-the-tv-upfronts-remain-unchanged-how-long-can-it-last/?sh=3e10c00c5b12" target="_blank" rel="noopener nofollow" class="each_article">
-								<!-- if logo == true -->
 								
-								<p>yes</p>
 								
-
+								<div class="article_card">
 								
-								<div class="article_card" style="background-image:url('/assets/forbes.png');">
 									<div class="card_overlay"></div>
-									<div class="article_source pt-3 px-4 fw-bold fs-3">Forbes</div>
-									<div class="article_date px-4 pb-3">5/4/2021</div>
+									<div class="article_meta_wrapper">
+										<div class="article_source pt-3 px-4 fw-bold fs-3">Forbes</div>
+										<div class="article_date px-4 pb-3">5/4/2021</div>
+									</div>
+									
+									
+									<div class="article_logo_wrapper">
+										<img src="/assets/forbes.png" alt="Forbes" class="card_logo" />
+									</div>
+									
+									
 								</div>
 								<div class="article_title mt-3">After A Year Of Media Disruption, The TV Upfronts Remain Unchanged. How Long Can It Last?</div>
 							</a></div>
