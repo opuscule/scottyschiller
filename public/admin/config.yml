@@ -16,3 +16,14 @@ collections:
       - { label: "Link", name: "link", widget: "string" }
       - { label: "Use Logo", name: "logo", widget: "boolean", default: true }
       - { label: "Image", name: "image", widget: "image" }
+collections:
+  - name: "media"
+    label: "Online Media"
+    folder: "src/online-media"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+    - { label: "Title", name: "title", widget: "string"}
+    - { label: "Date", name: "date", widget: "string"}
+    - { label: "Link", name: "link", widget: "string" }
+    - { label: "Image", name: "image", widget: "image" }
