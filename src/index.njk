@@ -198,28 +198,28 @@
 						<div class="my_articles" style="overflow-x: scroll; width: fit-content;">
 							
 							
-							{%- for my_articles in collections.all | reverse -%}
-							<a href="{{ my_articles.data.link }}" target="_blank" rel="noopener nofollow" class="each_article">
+							{%- for post in collections.articles | reverse -%}
+							<a href="{{ post.data.link }}" target="_blank" rel="noopener nofollow" class="each_article">
 								
-								{% if my_articles.data.logo == true %}
+								{% if post.data.logo == true %}
 								<div class="article_card">
 								{% else %}
-								<div class="article_card" style="background-image:url('{{ my_articles.data.image }}');">
+								<div class="article_card" style="background-image:url('{{ post.data.image }}');">
 								{% endif %}
 									<div class="card_overlay"></div>
 									<div class="article_meta_wrapper">
-										<div class="article_source pt-3 px-4 fw-bold fs-3">{{ my_articles.data.source }}</div>
-										<div class="article_date px-4 pb-3">{{ my_articles.date | postDate }}</div>
+										<div class="article_source pt-3 px-4 fw-bold fs-3">{{ post.data.source }}</div>
+										<div class="article_date px-4 pb-3">{{ post.date | postDate }}</div>
 									</div>
 									
-									{% if my_articles.data.logo == true %}
+									{% if post.data.logo == true %}
 									<div class="article_logo_wrapper">
-										<img src="{{ my_articles.data.image }}" alt="{{ my_articles.data.source }}" class="card_logo" />
+										<img src="{{ post.data.image }}" alt="{{ post.data.source }}" class="card_logo" />
 									</div>
 									{% endif %}
 									
 								</div>
-								<div class="article_title mt-3">{{ my_articles.data.title }}</div>
+								<div class="article_title mt-3">{{ post.data.title }}</div>
 							</a>
 							{%- endfor -%}
 							
@@ -262,6 +262,9 @@
 						<div class="articles">
 							<div class="swiper online_media">
 							  <div class="swiper-wrapper">
+								  
+								  
+								{%- for omedia in collections.media | reverse -%}
 								<a href="#" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image:url('https://picsum.photos/1600/900');">
 									<div class="media_overlay"></div>
 									<div class="play_btn_wrapper pt-5"><span class="play_button"><span class="play_triangle ms-2"></span></span></div>
@@ -270,22 +273,7 @@
 										<p>Spring 2022</p>
 									</div>
 								</a>
-								<a href="#" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image:url('https://picsum.photos/1700/900');">
-									<div class="media_overlay"></div>
-									<div class="play_btn_wrapper pt-5"><span class="play_button"><span class="play_triangle ms-2"></span></span></div>
-									<div class="media_meta_wrapper ps-5 mb-3">
-										<h3 class="mb-0">Another Media Thing</h3>
-										<p>Fall 2021</p>
-									</div>
-								</a>
-								<a href="#" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image:url('https://picsum.photos/1600/1000');">
-									<div class="media_overlay"></div>
-									<div class="play_btn_wrapper pt-5"><span class="play_button"><span class="play_triangle ms-2"></span></span></div>
-									<div class="media_meta_wrapper ps-5 mb-3">
-										<h3 class="mb-0">Third Media Thing</h3>
-										<p>Spring 2021</p>
-									</div>
-								</a>
+								{%- endfor -%}
 							  </div>
 							  <div class="swiper-pagination media_pag"></div>
 							</div>

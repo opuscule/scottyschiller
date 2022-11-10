@@ -14,7 +14,7 @@ collections:
       - { label: "Source", name: "source", widget: "string"}
       - { label: "Date", name: "date", widget: "datetime", date_format: "M/D/YY", time_format:false, picker_utc: false }
       - { label: "Link", name: "link", widget: "string" }
-      - { label: "Use Logo", name: "logo", widget: "boolean", default: true }
+      - { label: "Use Logo", name: "logo", widget: "boolean", default: true, comment: "Select whether you will use the logo or a full background image" }
       - { label: "Image", name: "image", widget: "image" }
   - name: "media"
     label: "Online Media"
@@ -23,6 +23,6 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
     - { label: "Title", name: "title", widget: "string"}
-    - { label: "Date", name: "date", widget: "string"}
+    - { label: "Publish Date", name: "publish_date", widget: "string"}
     - { label: "Link", name: "link", widget: "string" }
     - { label: "Image", name: "image", widget: "image" }
