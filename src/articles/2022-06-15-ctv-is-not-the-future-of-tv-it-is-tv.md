@@ -5,6 +5,6 @@ date: 2022-06-15T10:12:37.156Z
 link: https://www.thecontinuum.online/features/scott-schiller-ctv-is-not-the-future-of-tv-it-is-tv
 # Select whether you will use the logo or a full background image
 logo: false
-image: /images/scott-schiller-my-articles.png
+image: /images/scotty-schiller-articlebg.png
 tags: articles
 ---
