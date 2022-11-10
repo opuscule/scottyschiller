@@ -4,5 +4,5 @@ source: Linkedin
 date: 2022-04-19T10:17:15.055Z
 link: https://www.linkedin.com/pulse/bright-future-awaits-tv-advertisers-put-consumers-scott-schiller/
 logo: true
-image: /assets/gw.svg
+image: /images/linkedin-logo.png
 ---
