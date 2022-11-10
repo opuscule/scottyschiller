@@ -16,7 +16,6 @@ collections:
       - { label: "Link", name: "link", widget: "string" }
       - { label: "Use Logo", name: "logo", widget: "boolean", default: true }
       - { label: "Image", name: "image", widget: "image" }
-collections:
   - name: "media"
     label: "Online Media"
     folder: "src/online-media"
