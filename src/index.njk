@@ -198,7 +198,7 @@
 						<div class="my_articles" style="overflow-x: scroll; width: fit-content;">
 							
 							
-							{%- for post in collections.articles | reverse -%}
+							{% for post in collections.articles | reverse %}
 							<a href="{{ post.data.link }}" target="_blank" rel="noopener nofollow" class="each_article">
 								
 								{% if post.data.logo == true %}
@@ -221,7 +221,7 @@
 								</div>
 								<div class="article_title mt-3">{{ post.data.title }}</div>
 							</a>
-							{%- endfor -%}
+							{% endfor %}
 							
 						</div>
 					</div>
@@ -264,16 +264,17 @@
 							  <div class="swiper-wrapper">
 								  
 								  
-								{%- for omedia in collections.media | reverse -%}
-								<a href="#" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image:url('https://picsum.photos/1600/900');">
+								{%- for post in collections.media | reverse -%}
+								
+								<a href="{{ post.data.link }}" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image:url('{{ post.data.image }}');">
 									<div class="media_overlay"></div>
 									<div class="play_btn_wrapper pt-5"><span class="play_button"><span class="play_triangle ms-2"></span></span></div>
 									<div class="media_meta_wrapper ps-5 mb-3">
-										<h3 class="mb-0">Schiller Press Reel</h3>
-										<p>Spring 2022</p>
+										<h3 class="mb-0">{{ post.data.title }}</h3>
+										<p>{{ post.data.publish_date }}</p>
 									</div>
 								</a>
-								{%- endfor -%}
+								{%- endfor %}
 							  </div>
 							  <div class="swiper-pagination media_pag"></div>
 							</div>

@@ -16,6 +16,7 @@ collections:
       - { label: "Link", name: "link", widget: "string" }
       - { label: "Use Logo", name: "logo", widget: "boolean", default: true, comment: "Select whether you will use the logo or a full background image" }
       - { label: "Image", name: "image", widget: "image" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["articles"] }
   - name: "media"
     label: "Online Media"
     folder: "src/online-media"
@@ -26,3 +27,4 @@ collections:
     - { label: "Publish Date", name: "publish_date", widget: "string"}
     - { label: "Link", name: "link", widget: "string" }
     - { label: "Image", name: "image", widget: "image" }
+    - { label: "Tags", name: "tags", widget: "list", default: ["media"] }
