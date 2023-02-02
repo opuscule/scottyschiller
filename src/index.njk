@@ -50,13 +50,16 @@
 			
 				header#header .container,
 				header#header .container .row { min-height:55vh; }
-				header#header h1 { font-size: clamp(3.5rem, 1.4759rem + 7.1108vw, 7.5rem); }
+				header#header h1 { font-size: clamp(3.5rem, 1.4759rem + 7.1108vw, 7.5rem); animation: bgScott 1s; }
 					header#header h1 span { font-family: var(--body_font) !important; font-weight:300; }
+				header#header h5 { color: #FFF; font-family: var(--body_font); font-weight: 400; animation: bgScott 1s; font-size: 2rem; }
+					header#header h5 strong { font-weight: 700; }
 			@media ( min-width: 640px ) {
 				header#header,
 				header#header .container, 
 				header#header .container .row { min-height: 100vh; }
 			}
+			.scott_is { max-width: 80vw; max-height: 10vh; overflow: auto !important; margin-bottom:20vh; }
 			.nyu_stern_img { margin-top:-3rem; }
 			.prof_img_wrapper { display: grid; grid-template-columns: 4fr 1fr; grid-template-rows: auto 1.25rem 1fr; }
 			.prof_logo { grid-column: 1 / 2; grid-row: 1 / 2; background-color: #003F95; height: 100%; z-index: 2;}
@@ -224,7 +227,18 @@
 						</div>
 					</nav>
 					<h1 class="text-center text-light" style="margin-top:50vh;">Scott Schiller</h1>
-					<h5 class="text-center text-light mb-5">Catalyst For <strong>Growth</strong></h5>
+					
+					<div class="swiper scott_is">
+						<div class="swiper-wrapper text-center" style="color:#FFF;">
+							<h5 class="swiper-slide" data-swiper-autoplay="3500">Catalyst for <strong>Growth</strong></h5>
+							<h5 class="swiper-slide">Media <strong>Leader</strong></h5>
+							<h5 class="swiper-slide">Proven Commercial <strong>Leader</strong></h5>
+							<h5 class="swiper-slide"><strong>Business</strong> Builder</h5>
+							<h5 class="swiper-slide"><strong>Nonprofit</strong> Board Member</h5>
+							<h5 class="swiper-slide"><strong>Mentor</strong></h5>
+							<h5 class="swiper-slide"><strong>Drives Business Transformation</strong> through an understanding of content, data, and media.</h5>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -597,6 +611,17 @@
 			  el: ".prof_pag",
 			  clickable: true,
 			}
+		});
+		
+		var scott_isSwiper = new Swiper(".scott_is",{
+			spaceBetween: 20,
+			centeredSlides: false,
+			loop: true,
+			direction: "vertical",
+			autoplay: {
+				delay: 2500,
+				disableOnInteraction: false,
+			  },
 		});
 		
 	  var swiper = new Swiper(".online_media", {
