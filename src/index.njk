@@ -58,12 +58,12 @@
 			
 				header#header .container,
 				header#header .container .row { min-height:55vh; }
-				header#header h1 { font-size: clamp(3.5rem, 1.4759rem + 7.1108vw, 7.5rem); margin-top:30vh; animation: bgScott 1s; }
+				header#header h1 { font-size: clamp(3.25rem, 1.4759rem + 7.1108vw, 7.5rem); margin-top:34vh; animation: bgScott 1s; }
 					header#header h1 span { font-family: var(--body_font) !important; font-weight:300; }
 				header#header h5 { color: #FFF; font-family: var(--body_font); font-weight: 400; animation: bgScott 1s; font-size: 1.25rem; }
 					header#header h5 strong { font-weight: 700; }
 			.swiper.scott_is { overflow: hidden !important; }
-			.scott_is { max-width: 90vw; max-height: 10vh; overflow: auto !important; margin-bottom:8vh; }
+			.scott_is { max-width: 90vw; max-height: 8vh; overflow: auto !important; margin-bottom:3vh; }
 			@media ( min-width: 640px ) {
 				header#header,
 				header#header .container, 
@@ -185,11 +185,11 @@
 				.footer_li:focus svg { fill: var(--cta-yellow); }
 				
 			@media ( min-width: 768px ) {
-				#navbarScroll { display:inline-block !important; }
+				/* #navbarScroll { display:inline-block !important; } */
 			}	
 			@media ( max-width: 768px ) {
 				nav.navbar { flex-wrap: nowrap; align-items: flex-start; }
-				.navbar-collapse { position: absolute; background-color: var(--bluebg); width: 100%; padding: 2vw 6vw; top: 6rem; left: 0; }
+				.navbar-collapse { position: absolute; background-color: var(--bluebg); width: 100%; padding: 2vw 6vw; top: 56px; left: 0; }
 				.nav-link { font-size: 1.5rem; }
 				.media_meta_wrapper h3 { font-size: 1.15rem; }
 				.media_meta_wrapper p { font-size: 0.9rem; }
@@ -464,11 +464,11 @@
 		
 		<section class="container mb-5 pt-4">
 			<div class="row">
-				<div class="col">
+				<div class="col-sm-6">
 					<h3>Subscribe to Scott's newsletter</h3>
 				</div>
-				<div class="col">
-					<iframe src="https://scottyschiller.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+				<div class="col-sm-4">
+					<iframe src="https://scottyschiller.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white; max-width:480px !important; width:100%;" frameborder="0" scrolling="no"></iframe>
 				</div>
 			</div>
 		</section>
@@ -532,7 +532,7 @@
 							<label for="companyInput">Company</label>
 						</div>
 						<div class="form-floating">
-							<textarea class="form-control" placeholder="Leave a message here" id="messageTextarea"></textarea>
+							<textarea class="form-control" placeholder="Leave a message here" name="message" id="messageTextarea"></textarea>
 							<label for="messageTextarea">Message</label>
 						</div>
 						<div class="d-none"><label>Do not fill this out if you are human: <input name="bot-field" /></label></div>
@@ -552,11 +552,14 @@
 	<script>
 		
 		// GETTING & TRACKING WINDOW HEIGHT
-		const height = window.innerHeight;
-		const newheight =
+		let height = window.innerHeight;
+		let width = window.innerWidth;
+		let newheight;
 		console.log(`Start VH: ${height}`);
+		console.log(`Start VW: ${width}`);
+		
 		window.addEventListener("resize", () => {
-			newheight = window.innerHeight;
+			let newheight = window.innerHeight;
 			console.log(`Viewport Height: ${newheight}`);
 			height = newheight;
 		});
@@ -570,7 +573,8 @@
 				if(scrollDistance > height || scrollDistance > newheight){
 					
 				} else {
-					const scrollBannerPercent = ((scrollDistance / (height / 100)) / 100 );
+					
+						const scrollBannerPercent = ((scrollDistance / (height / 100)) / 100 );
 					
 					var oldCss = 'rgba(23,43,82,0)',
 					newCss = oldCss.replace(/[^,]+(?=\))/, scrollBannerPercent);
@@ -584,6 +588,10 @@
 			});
 		}());
 		
+		$('.nav-link').on('click',function() {
+		  $('.navbar-collapse').collapse('hide');
+		});
+
 		
 		
 		
