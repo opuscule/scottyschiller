@@ -98,11 +98,14 @@
 			
 			
 			.my_articles { display:flex; gap:1.5rem; overflow-x: scroll; }
-			.each_article { text-decoration: none; width:18rem; transition:all 0.3s ease; }
-			.article_card { background-size: cover; background-position: center top; height: 28.5rem; position: relative; background-color: #0E2044; z-index: 0; display: flex; flex-direction: column;}
-			.card_overlay { position: absolute; content:""; top: 0; width: 100%; height: 50%; background: linear-gradient(#293C60, rgba(41, 60, 96, 0)); z-index: -1; }
-			.article_logo_wrapper { flex: 1 0 auto; display: grid; align-items: center; justify-content: center; }
-				.article_logo_wrapper img { max-width: 12rem; }
+			.each_article { text-decoration: none; width:18rem; transition:all 0.3s ease; background-blend-mode: multiply; background-size:cover; background-position: center center; }
+			.article_card { background-size: cover; background-position: center top; height: 28.5rem; position: relative; z-index: 0; display: flex; flex-direction: column; background-blend-mode: multiply; transition: var(--transition_all); }
+				/* .article_card:hover { background-color: rgb(14 32 68 / 80%); } */
+			
+			/* .card_overlay { position: absolute; content:""; top: 0; width: 100%; height: 16%; background: rgb(41 60 96 / 60%); z-index: -1; transition: all 0.25s ease; }
+				.each_article:hover .card_overlay,
+				.each_article:focus .card_overlay { height:100%; background: rgb(41 60 96 / 80%); } */
+			
 			
 			.li_cta { background-color: rgba(160, 187, 215, 0.1); text-decoration: none; color: var(--body-on-darkbg); font-size: 1.5rem; font-weight: 800; transition: all 0.3s ease; }
 			.li_cta .li_arrow { width: 4rem; height:4rem; fill:none; background-color: rgba(0,0,0,0); }
@@ -115,30 +118,34 @@
 						.li_cta:focus .li_arrow path { stroke: var(--bluebg); }
 			.article_source,
 			.article_date { color: var(--body-on-darkbg); transition: var(--transition_all); }
+			
+			.article_source,
+			.article_title { opacity: 0; transition: all 0.3s ease; color: var(--cta-yellow); }
+			
 				.each_article:hover .article_source,
 				.each_article:focus .article_source,
-				.each_article:hover .article_date,
-				.each_article:focus .article_date { color: var(--cta-yellow); }
-			.article_title { color: var(--body-on-darkbg); font-size: 1.5rem; line-height: 1.2; transition:var(--transition_all); }
 				.each_article:hover .article_title,
-				.each_article:focus .article_title { color: #FFF; }
+				.each_article:focus .article_title { opacity: 1; }
+			.article_title { color: var(--body-on-darkbg); font-size: 1.5rem; line-height: 1.2; transition:var(--transition_all); }
+				
 			
 			.darkbg_grad { background: rgb(28,41,79); overflow-x:hidden;
-				background: linear-gradient(180deg, rgba(28,41,79,1) 0%, rgba(28,41,79,1) 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%); }
-			.each_media { background-size:cover; background-position:center center; aspect-ratio:16/9; display:grid; position:relative; z-index: 0; text-decoration: none; grid-template-rows: 1fr auto; }
+				background: linear-gradient(180deg, rgba(28,41,79,1) 0%, rgba(28,41,79,1) 80%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 100%); }
+			
 			.play_btn_wrapper { display: flex;
 				align-items: center;
 				justify-content: center; }
-			.play_button { background-color: var(--body-on-darkbg); width:5.2rem; height:5.2rem; border-radius: 10rem; display: flex;
-				justify-content: center;
-				align-items: center;}
-			.play_triangle { width: 0;
-				height: 0; display:block; 
-				border-style: solid;
-				border-width: 1rem 0 1rem 1.5rem;
-				border-color: transparent transparent transparent var(--body-on-lightbg);
+			.play_button { background-color: var(--body-on-darkbg); width:5.2rem; height:5.2rem; border-radius: 10rem; display: flex; transition: var(--transition_all); justify-content: center; align-items: center; }
+			.each_media:hover .play_button,
+			.each_media:focus .play_button { background-color: #FFF; }
+			.play_triangle { width: 0; height: 0; display:block; border-style: solid; border-width: 1rem 0 1rem 1.5rem; border-color: transparent transparent transparent var(--body-on-lightbg);
  }
-			.media_overlay { position: absolute; content:""; bottom: 0; width: 100%; height: 50%; background: linear-gradient( rgba(41, 60, 96, 0), #293C60); z-index: -1;  }
+			.media_overlay { position: absolute; content:""; bottom: 0; width: 100%; height: 20%; background: rgb(41 60 96 / 60%); z-index: -1; transition: height 0.3s ease; }
+			.each_media { background-size:cover; background-position:center center; aspect-ratio:16/9; background-blend-mode: multiply; display:grid; position:relative; z-index: 0; text-decoration: none; grid-template-rows: 1fr auto; }
+			
+				.each_media:hover .media_overlay,
+				.each_media:focus .media_overlay { height: 100%; }
+			
 				.media_meta_wrapper h3 { font-family: var(--body_font); font-size: 1.5rem; font-weight: 700; }
 				.media_meta_wrapper h3, 
 				.media_meta_wrapper p { color: var(--body-on-darkbg); transition: var(--transition_all); }
@@ -347,7 +354,7 @@
 			</div>
 		</section>
 		
-		<section class="darkbg" id="scott_says">
+		<section class="darkbg pt-4" id="scott_says">
 			<div class="container pt-5">
 				<div class="row">
 					<div class="col">
@@ -370,56 +377,18 @@
 				</div>
 			</div>
 		</section>
-		<section class="darkbg" style="overflow-x:auto;">	
-			<div class="container pb-5">
-				<div class="row" style="overflow-x: auto;">
-					<div class="col" style="overflow-x: auto;">
-						<div class="my_articles" style="overflow-x: scroll; width: fit-content;">
-							
-							
-							{% for post in collections.articles | reverse %}
-							<a href="{{ post.data.link }}" target="_blank" rel="noopener nofollow" class="each_article">
-								
-								{% if post.data.logo == true %}
-								<div class="article_card">
-								{% else %}
-								<div class="article_card" style="background-image:url('{{ post.data.image }}');">
-								{% endif %}
-									<div class="card_overlay"></div>
-									<div class="article_meta_wrapper">
-										<div class="article_source pt-3 px-4 fw-bold fs-3">{{ post.data.source }}</div>
-										<div class="article_date px-4 pb-3">{{ post.date | postDate }}</div>
-									</div>
-									
-									{% if post.data.logo == true %}
-									<div class="article_logo_wrapper">
-										<img src="{{ post.data.image }}" alt="{{ post.data.source }}" class="card_logo" />
-									</div>
-									{% endif %}
-									
-								</div>
-								<div class="article_title mt-3">{{ post.data.title }}</div>
-							</a>
-							{% endfor %}
-							
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			
-		</section>
 		
-		<section class="darkbg_grad pt-5 mb-5 pb-5" id="online_media">
-			<div class="container pt-3 pt-md-5">
+		
+		<section class="darkbg pt-5 pb-5" id="online_media" style="overflow-x: auto;">
+			<div class="container">
 				<div class="row">
 					<div class="col">
 						<div class="articles">
 							<div class="swiper online_media">
 							  <div class="swiper-wrapper">
 								{%- for post in collections.media | reverse -%}
-								<a href="{{ post.data.link }}" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image:url('{{ post.data.image }}');">
-									<div class="media_overlay"></div>
+								<a href="{{ post.data.link }}" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image: linear-gradient(180deg, rgba(41,60,96,0) 0%, rgba(41,60,96,0) 80%, rgba(41,60,96,0.6) 80%, rgba(41,60,96,0.6) 100%), url({{ post.data.image }});" class="each_article" onmouseover='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.8) 0%, rgba(41,60,96,0.8) 100%), url({{ post.data.image }})"' 
+								onmouseout='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0) 0%, rgba(41,60,96,0) 80%, rgba(41,60,96,0.8) 80%, rgba(41,60,96,0.8) 100%), url({{ post.data.image }})"'>
 									<div class="play_btn_wrapper pt-5"><span class="play_button"><span class="play_triangle ms-2"></span></span></div>
 									<div class="media_meta_wrapper px-3 px-md-5 mb-2 mb-md-3 mt-2">
 										<h3 class="mb-0">{{ post.data.title }}</h3>
@@ -434,6 +403,37 @@
 					</div>
 				</div>
 			</div>
+		</section>
+		
+		
+		
+		<section class="darkbg_grad pt-5" style="overflow-x:auto;">	
+			<div class="container pb-5">
+				<div class="row">
+					<div class="col">
+						<div class="my_articles" style="overflow-x: scroll; width: fit-content;">
+							
+							
+							{% for post in collections.articles | reverse %}
+							<a href="{{ post.data.link }}" target="_blank" rel="noopener nofollow" style="background-image: linear-gradient(180deg, rgba(41,60,96,0.6) 0%, rgba(41,60,96,0.6) 16%, rgba(41,60,96,0) 16%, rgba(41,60,96,0) 100%), url({{ post.data.image }});" class="each_article" onmouseover='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.8) 0%, rgba(41,60,96,0.8) 100%), url({{ post.data.image }})"' 
+							onmouseout='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.6) 0%, rgba(41,60,96,0.6) 16%, rgba(41,60,96,0) 16%, rgba(41,60,96,0) 100%), url({{ post.data.image }})"'>
+								<div class="article_card">
+									<div class="card_overlay"></div>
+									<div class="article_meta_wrapper">
+										<div class="article_date px-4 pt-4">{{ post.date | postDate }}</div>
+										<div class="article_source pt-3 px-4 fw-bold fs-3">{{ post.data.source }}</div>
+										
+										<div class="article_title mt-1 px-4">{{ post.data.title }}</div>
+									</div>
+								</div>
+							</a>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
 		</section>
 		
 		<section class="container my-5 mt-5 pt-md-5" id="philanthropy">
@@ -481,20 +481,6 @@
 			</div>
 		</section>
 		
-		<!-- <section class="darkbg py-5">
-			<div class="container py-3">
-				<div class="row">
-					<div class="col">
-						<a href="https://scottyschiller.substack.com/" target="_blank" rel="nofollow noopener" class="li_cta py-3 ps-4 pe-3 d-flex justify-content-between align-items-center">
-							Sign Up For Scott's Newsletter
-							<svg xmlns="http://www.w3.org/2000/svg" class="li_arrow">
-							  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M50 32.002 14 32.002M36 46 50 32 36 18"/>
-							</svg>
-						</a>
-					</div>
-				</div>
-			</div>
-		</section> -->
 	</main>
 	<footer id="footer" class="py-5">
 		<div class="container">

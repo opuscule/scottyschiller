@@ -98,11 +98,14 @@
 			
 			
 			.my_articles { display:flex; gap:1.5rem; overflow-x: scroll; }
-			.each_article { text-decoration: none; width:18rem; transition:all 0.3s ease; }
-			.article_card { background-size: cover; background-position: center top; height: 28.5rem; position: relative; background-color: #0E2044; z-index: 0; display: flex; flex-direction: column;}
-			.card_overlay { position: absolute; content:""; top: 0; width: 100%; height: 50%; background: linear-gradient(#293C60, rgba(41, 60, 96, 0)); z-index: -1; }
-			.article_logo_wrapper { flex: 1 0 auto; display: grid; align-items: center; justify-content: center; }
-				.article_logo_wrapper img { max-width: 12rem; }
+			.each_article { text-decoration: none; width:18rem; transition:all 0.3s ease; background-blend-mode: multiply; background-size:cover; background-position: center center; }
+			.article_card { background-size: cover; background-position: center top; height: 28.5rem; position: relative; z-index: 0; display: flex; flex-direction: column; background-blend-mode: multiply; transition: var(--transition_all); }
+				/* .article_card:hover { background-color: rgb(14 32 68 / 80%); } */
+			
+			/* .card_overlay { position: absolute; content:""; top: 0; width: 100%; height: 16%; background: rgb(41 60 96 / 60%); z-index: -1; transition: all 0.25s ease; }
+				.each_article:hover .card_overlay,
+				.each_article:focus .card_overlay { height:100%; background: rgb(41 60 96 / 80%); } */
+			
 			
 			.li_cta { background-color: rgba(160, 187, 215, 0.1); text-decoration: none; color: var(--body-on-darkbg); font-size: 1.5rem; font-weight: 800; transition: all 0.3s ease; }
 			.li_cta .li_arrow { width: 4rem; height:4rem; fill:none; background-color: rgba(0,0,0,0); }
@@ -115,30 +118,34 @@
 						.li_cta:focus .li_arrow path { stroke: var(--bluebg); }
 			.article_source,
 			.article_date { color: var(--body-on-darkbg); transition: var(--transition_all); }
+			
+			.article_source,
+			.article_title { opacity: 0; transition: all 0.3s ease; color: var(--cta-yellow); }
+			
 				.each_article:hover .article_source,
 				.each_article:focus .article_source,
-				.each_article:hover .article_date,
-				.each_article:focus .article_date { color: var(--cta-yellow); }
-			.article_title { color: var(--body-on-darkbg); font-size: 1.5rem; line-height: 1.2; transition:var(--transition_all); }
 				.each_article:hover .article_title,
-				.each_article:focus .article_title { color: #FFF; }
+				.each_article:focus .article_title { opacity: 1; }
+			.article_title { color: var(--body-on-darkbg); font-size: 1.5rem; line-height: 1.2; transition:var(--transition_all); }
+				
 			
 			.darkbg_grad { background: rgb(28,41,79); overflow-x:hidden;
-				background: linear-gradient(180deg, rgba(28,41,79,1) 0%, rgba(28,41,79,1) 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%); }
-			.each_media { background-size:cover; background-position:center center; aspect-ratio:16/9; display:grid; position:relative; z-index: 0; text-decoration: none; grid-template-rows: 1fr auto; }
+				background: linear-gradient(180deg, rgba(28,41,79,1) 0%, rgba(28,41,79,1) 80%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 100%); }
+			
 			.play_btn_wrapper { display: flex;
 				align-items: center;
 				justify-content: center; }
-			.play_button { background-color: var(--body-on-darkbg); width:5.2rem; height:5.2rem; border-radius: 10rem; display: flex;
-				justify-content: center;
-				align-items: center;}
-			.play_triangle { width: 0;
-				height: 0; display:block; 
-				border-style: solid;
-				border-width: 1rem 0 1rem 1.5rem;
-				border-color: transparent transparent transparent var(--body-on-lightbg);
+			.play_button { background-color: var(--body-on-darkbg); width:5.2rem; height:5.2rem; border-radius: 10rem; display: flex; transition: var(--transition_all); justify-content: center; align-items: center; }
+			.each_media:hover .play_button,
+			.each_media:focus .play_button { background-color: #FFF; }
+			.play_triangle { width: 0; height: 0; display:block; border-style: solid; border-width: 1rem 0 1rem 1.5rem; border-color: transparent transparent transparent var(--body-on-lightbg);
  }
-			.media_overlay { position: absolute; content:""; bottom: 0; width: 100%; height: 50%; background: linear-gradient( rgba(41, 60, 96, 0), #293C60); z-index: -1;  }
+			.media_overlay { position: absolute; content:""; bottom: 0; width: 100%; height: 20%; background: rgb(41 60 96 / 60%); z-index: -1; transition: height 0.3s ease; }
+			.each_media { background-size:cover; background-position:center center; aspect-ratio:16/9; background-blend-mode: multiply; display:grid; position:relative; z-index: 0; text-decoration: none; grid-template-rows: 1fr auto; }
+			
+				.each_media:hover .media_overlay,
+				.each_media:focus .media_overlay { height: 100%; }
+			
 				.media_meta_wrapper h3 { font-family: var(--body_font); font-size: 1.5rem; font-weight: 700; }
 				.media_meta_wrapper h3, 
 				.media_meta_wrapper p { color: var(--body-on-darkbg); transition: var(--transition_all); }
@@ -347,7 +354,7 @@
 			</div>
 		</section>
 		
-		<section class="darkbg" id="scott_says">
+		<section class="darkbg pt-4" id="scott_says">
 			<div class="container pt-5">
 				<div class="row">
 					<div class="col">
@@ -370,152 +377,44 @@
 				</div>
 			</div>
 		</section>
-		<section class="darkbg" style="overflow-x:auto;">	
-			<div class="container pb-5">
-				<div class="row" style="overflow-x: auto;">
-					<div class="col" style="overflow-x: auto;">
-						<div class="my_articles" style="overflow-x: scroll; width: fit-content;">
-							
-							
-							
-							<a href="https://www.streamingmedia.com/Articles/Post/Blog/My-God-Its-Full-of-Stars-157389.aspx" target="_blank" rel="noopener nofollow" class="each_article">
-								
-								
-								<div class="article_card" style="background-image:url('/images/new-ctv-challenges.jpeg');">
-								
-									<div class="card_overlay"></div>
-									<div class="article_meta_wrapper">
-										<div class="article_source pt-3 px-4 fw-bold fs-3">Streaming Media</div>
-										<div class="article_date px-4 pb-3">2/28/2023</div>
-									</div>
-									
-									
-									
-								</div>
-								<div class="article_title mt-3">The New CTV Challenges of Advertising Metrics</div>
-							</a>
-							
-							<a href="https://www.thecontinuum.online/features/scott-schiller-ctv-is-not-the-future-of-tv-it-is-tv" target="_blank" rel="noopener nofollow" class="each_article">
-								
-								
-								<div class="article_card" style="background-image:url('/images/scotty-schiller-articlebg.png');">
-								
-									<div class="card_overlay"></div>
-									<div class="article_meta_wrapper">
-										<div class="article_source pt-3 px-4 fw-bold fs-3">Continuum</div>
-										<div class="article_date px-4 pb-3">6/15/2022</div>
-									</div>
-									
-									
-									
-								</div>
-								<div class="article_title mt-3">CTV is not the Future of TV (it IS TV)</div>
-							</a>
-							
-							<a href="https://www.linkedin.com/pulse/bright-future-awaits-tv-advertisers-put-consumers-scott-schiller/" target="_blank" rel="noopener nofollow" class="each_article">
-								
-								
-								<div class="article_card">
-								
-									<div class="card_overlay"></div>
-									<div class="article_meta_wrapper">
-										<div class="article_source pt-3 px-4 fw-bold fs-3">Linkedin</div>
-										<div class="article_date px-4 pb-3">4/19/2022</div>
-									</div>
-									
-									
-									<div class="article_logo_wrapper">
-										<img src="/images/linkedin-logo.png" alt="Linkedin" class="card_logo" />
-									</div>
-									
-									
-								</div>
-								<div class="article_title mt-3">A Bright Future Awaits TV Advertisers That Put Consumers</div>
-							</a>
-							
-							<a href="https://www.adweek.com/sponsored/update-your-legacy-mindset-about-media-and-embrace-tv-convergence/" target="_blank" rel="noopener nofollow" class="each_article">
-								
-								
-								<div class="article_card" style="background-image:url('/assets/adweek.jpg');">
-								
-									<div class="card_overlay"></div>
-									<div class="article_meta_wrapper">
-										<div class="article_source pt-3 px-4 fw-bold fs-3">AdWeek</div>
-										<div class="article_date px-4 pb-3">4/12/2022</div>
-									</div>
-									
-									
-									
-								</div>
-								<div class="article_title mt-3">Update Your Legacy Mindset About Media and Embrace TV Convergence</div>
-							</a>
-							
-							<a href="https://www.forbes.com/sites/bradadgate/2021/05/04/after-a-year-of-media-disruption-the-tv-upfronts-remain-unchanged-how-long-can-it-last/?sh=3e10c00c5b12" target="_blank" rel="noopener nofollow" class="each_article">
-								
-								
-								<div class="article_card">
-								
-									<div class="card_overlay"></div>
-									<div class="article_meta_wrapper">
-										<div class="article_source pt-3 px-4 fw-bold fs-3">Forbes</div>
-										<div class="article_date px-4 pb-3">5/4/2021</div>
-									</div>
-									
-									
-									<div class="article_logo_wrapper">
-										<img src="/assets/forbes.png" alt="Forbes" class="card_logo" />
-									</div>
-									
-									
-								</div>
-								<div class="article_title mt-3">After A Year Of Media Disruption, The TV Upfronts Remain Unchanged. How Long Can It Last?</div>
-							</a>
-							
-							
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			
-		</section>
 		
-		<section class="darkbg_grad pt-5 mb-5 pb-5" id="online_media">
-			<div class="container pt-3 pt-md-5">
+		
+		<section class="darkbg pt-5 pb-5" id="online_media" style="overflow-x: auto;">
+			<div class="container">
 				<div class="row">
 					<div class="col">
 						<div class="articles">
 							<div class="swiper online_media">
-							  <div class="swiper-wrapper"><a href="https://vimeo.com/798902788" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image:url('/images/scott-schiller-reel.jpg');">
-									<div class="media_overlay"></div>
+							  <div class="swiper-wrapper"><a href="https://vimeo.com/798902788" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image: linear-gradient(180deg, rgba(41,60,96,0) 0%, rgba(41,60,96,0) 80%, rgba(41,60,96,0.6) 80%, rgba(41,60,96,0.6) 100%), url(/images/scott-schiller-reel.jpg);" class="each_article" onmouseover='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.8) 0%, rgba(41,60,96,0.8) 100%), url(/images/scott-schiller-reel.jpg)"' 
+								onmouseout='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0) 0%, rgba(41,60,96,0) 80%, rgba(41,60,96,0.8) 80%, rgba(41,60,96,0.8) 100%), url(/images/scott-schiller-reel.jpg)"'>
 									<div class="play_btn_wrapper pt-5"><span class="play_button"><span class="play_triangle ms-2"></span></span></div>
 									<div class="media_meta_wrapper px-3 px-md-5 mb-2 mb-md-3 mt-2">
 										<h3 class="mb-0">Press Reel</h3>
 										<p class="mb-1 mb-md-3">Spring 2022</p>
 									</div>
-								</a><a href="https://www.thriveloud.com/podcast-collection/766-scott-schiller" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image:url('/images/scott-schiller-thrive-loud.jpeg');">
-									<div class="media_overlay"></div>
+								</a><a href="https://www.thriveloud.com/podcast-collection/766-scott-schiller" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image: linear-gradient(180deg, rgba(41,60,96,0) 0%, rgba(41,60,96,0) 80%, rgba(41,60,96,0.6) 80%, rgba(41,60,96,0.6) 100%), url(/images/scott-schiller-thrive-loud.jpeg);" class="each_article" onmouseover='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.8) 0%, rgba(41,60,96,0.8) 100%), url(/images/scott-schiller-thrive-loud.jpeg)"' 
+								onmouseout='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0) 0%, rgba(41,60,96,0) 80%, rgba(41,60,96,0.8) 80%, rgba(41,60,96,0.8) 100%), url(/images/scott-schiller-thrive-loud.jpeg)"'>
 									<div class="play_btn_wrapper pt-5"><span class="play_button"><span class="play_triangle ms-2"></span></span></div>
 									<div class="media_meta_wrapper px-3 px-md-5 mb-2 mb-md-3 mt-2">
 										<h3 class="mb-0">Thrive Loud Podcast</h3>
 										<p class="mb-1 mb-md-3">May 2022</p>
 									</div>
-								</a><a href="https://open.spotify.com/episode/3aeGbBHotK8u6jBNlTvV7R" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image:url('/images/next-in-marketing-podcast.jpg');">
-									<div class="media_overlay"></div>
+								</a><a href="https://open.spotify.com/episode/3aeGbBHotK8u6jBNlTvV7R" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image: linear-gradient(180deg, rgba(41,60,96,0) 0%, rgba(41,60,96,0) 80%, rgba(41,60,96,0.6) 80%, rgba(41,60,96,0.6) 100%), url(/images/next-in-marketing-podcast.jpg);" class="each_article" onmouseover='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.8) 0%, rgba(41,60,96,0.8) 100%), url(/images/next-in-marketing-podcast.jpg)"' 
+								onmouseout='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0) 0%, rgba(41,60,96,0) 80%, rgba(41,60,96,0.8) 80%, rgba(41,60,96,0.8) 100%), url(/images/next-in-marketing-podcast.jpg)"'>
 									<div class="play_btn_wrapper pt-5"><span class="play_button"><span class="play_triangle ms-2"></span></span></div>
 									<div class="media_meta_wrapper px-3 px-md-5 mb-2 mb-md-3 mt-2">
 										<h3 class="mb-0">Why the TV ad industry is unlikely to settle on new measurement in 2022</h3>
 										<p class="mb-1 mb-md-3">January 2022</p>
 									</div>
-								</a><a href="https://www.beet.tv/2021/12/of-cats-context-consumers-define-their-own-premium-engines-schiller-says.html" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image:url('/images/scott-schiller-beet-tv.jpg');">
-									<div class="media_overlay"></div>
+								</a><a href="https://www.beet.tv/2021/12/of-cats-context-consumers-define-their-own-premium-engines-schiller-says.html" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image: linear-gradient(180deg, rgba(41,60,96,0) 0%, rgba(41,60,96,0) 80%, rgba(41,60,96,0.6) 80%, rgba(41,60,96,0.6) 100%), url(/images/scott-schiller-beet-tv.jpg);" class="each_article" onmouseover='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.8) 0%, rgba(41,60,96,0.8) 100%), url(/images/scott-schiller-beet-tv.jpg)"' 
+								onmouseout='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0) 0%, rgba(41,60,96,0) 80%, rgba(41,60,96,0.8) 80%, rgba(41,60,96,0.8) 100%), url(/images/scott-schiller-beet-tv.jpg)"'>
 									<div class="play_btn_wrapper pt-5"><span class="play_button"><span class="play_triangle ms-2"></span></span></div>
 									<div class="media_meta_wrapper px-3 px-md-5 mb-2 mb-md-3 mt-2">
 										<h3 class="mb-0">Of Cats &amp; Context: Consumers Define Their Own ‘Premium’</h3>
 										<p class="mb-1 mb-md-3">December 2021</p>
 									</div>
-								</a><a href="https://www.cornell.edu/video/nbcuniversal-kate-snow-scott-schiller-communication-careers" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image:url('/images/scott-schiller-kate-snow.jpg');">
-									<div class="media_overlay"></div>
+								</a><a href="https://www.cornell.edu/video/nbcuniversal-kate-snow-scott-schiller-communication-careers" target="_blank" rel="noopener nofollow" class="swiper-slide each_media" style="background-image: linear-gradient(180deg, rgba(41,60,96,0) 0%, rgba(41,60,96,0) 80%, rgba(41,60,96,0.6) 80%, rgba(41,60,96,0.6) 100%), url(/images/scott-schiller-kate-snow.jpg);" class="each_article" onmouseover='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.8) 0%, rgba(41,60,96,0.8) 100%), url(/images/scott-schiller-kate-snow.jpg)"' 
+								onmouseout='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0) 0%, rgba(41,60,96,0) 80%, rgba(41,60,96,0.8) 80%, rgba(41,60,96,0.8) 100%), url(/images/scott-schiller-kate-snow.jpg)"'>
 									<div class="play_btn_wrapper pt-5"><span class="play_button"><span class="play_triangle ms-2"></span></span></div>
 									<div class="media_meta_wrapper px-3 px-md-5 mb-2 mb-md-3 mt-2">
 										<h3 class="mb-0">Mentorship: Interview / NBC News’ Kate Snow for Cornell Mentoring and Recruiting</h3>
@@ -529,6 +428,89 @@
 					</div>
 				</div>
 			</div>
+		</section>
+		
+		
+		
+		<section class="darkbg_grad pt-5" style="overflow-x:auto;">	
+			<div class="container pb-5">
+				<div class="row">
+					<div class="col">
+						<div class="my_articles" style="overflow-x: scroll; width: fit-content;">
+							
+							
+							
+							<a href="https://www.streamingmedia.com/Articles/Post/Blog/My-God-Its-Full-of-Stars-157389.aspx" target="_blank" rel="noopener nofollow" style="background-image: linear-gradient(180deg, rgba(41,60,96,0.6) 0%, rgba(41,60,96,0.6) 16%, rgba(41,60,96,0) 16%, rgba(41,60,96,0) 100%), url(/images/new-ctv-challenges.jpeg);" class="each_article" onmouseover='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.8) 0%, rgba(41,60,96,0.8) 100%), url(/images/new-ctv-challenges.jpeg)"' 
+							onmouseout='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.6) 0%, rgba(41,60,96,0.6) 16%, rgba(41,60,96,0) 16%, rgba(41,60,96,0) 100%), url(/images/new-ctv-challenges.jpeg)"'>
+								<div class="article_card">
+									<div class="card_overlay"></div>
+									<div class="article_meta_wrapper">
+										<div class="article_date px-4 pt-4">2/28/2023</div>
+										<div class="article_source pt-3 px-4 fw-bold fs-3">Streaming Media</div>
+										
+										<div class="article_title mt-1 px-4">The New CTV Challenges of Advertising Metrics</div>
+									</div>
+								</div>
+							</a>
+							
+							<a href="https://www.thecontinuum.online/features/scott-schiller-ctv-is-not-the-future-of-tv-it-is-tv" target="_blank" rel="noopener nofollow" style="background-image: linear-gradient(180deg, rgba(41,60,96,0.6) 0%, rgba(41,60,96,0.6) 16%, rgba(41,60,96,0) 16%, rgba(41,60,96,0) 100%), url(/images/ss-article-1.jpg);" class="each_article" onmouseover='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.8) 0%, rgba(41,60,96,0.8) 100%), url(/images/ss-article-1.jpg)"' 
+							onmouseout='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.6) 0%, rgba(41,60,96,0.6) 16%, rgba(41,60,96,0) 16%, rgba(41,60,96,0) 100%), url(/images/ss-article-1.jpg)"'>
+								<div class="article_card">
+									<div class="card_overlay"></div>
+									<div class="article_meta_wrapper">
+										<div class="article_date px-4 pt-4">6/15/2022</div>
+										<div class="article_source pt-3 px-4 fw-bold fs-3">Continuum</div>
+										
+										<div class="article_title mt-1 px-4">CTV is not the Future of TV (it IS TV)</div>
+									</div>
+								</div>
+							</a>
+							
+							<a href="https://www.linkedin.com/pulse/bright-future-awaits-tv-advertisers-put-consumers-scott-schiller/" target="_blank" rel="noopener nofollow" style="background-image: linear-gradient(180deg, rgba(41,60,96,0.6) 0%, rgba(41,60,96,0.6) 16%, rgba(41,60,96,0) 16%, rgba(41,60,96,0) 100%), url(/images/ss-article-2.jpeg);" class="each_article" onmouseover='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.8) 0%, rgba(41,60,96,0.8) 100%), url(/images/ss-article-2.jpeg)"' 
+							onmouseout='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.6) 0%, rgba(41,60,96,0.6) 16%, rgba(41,60,96,0) 16%, rgba(41,60,96,0) 100%), url(/images/ss-article-2.jpeg)"'>
+								<div class="article_card">
+									<div class="card_overlay"></div>
+									<div class="article_meta_wrapper">
+										<div class="article_date px-4 pt-4">4/19/2022</div>
+										<div class="article_source pt-3 px-4 fw-bold fs-3">Linkedin</div>
+										
+										<div class="article_title mt-1 px-4">A Bright Future Awaits TV Advertisers That Put Consumers</div>
+									</div>
+								</div>
+							</a>
+							
+							<a href="https://www.adweek.com/sponsored/update-your-legacy-mindset-about-media-and-embrace-tv-convergence/" target="_blank" rel="noopener nofollow" style="background-image: linear-gradient(180deg, rgba(41,60,96,0.6) 0%, rgba(41,60,96,0.6) 16%, rgba(41,60,96,0) 16%, rgba(41,60,96,0) 100%), url(/assets/adweek.jpg);" class="each_article" onmouseover='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.8) 0%, rgba(41,60,96,0.8) 100%), url(/assets/adweek.jpg)"' 
+							onmouseout='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.6) 0%, rgba(41,60,96,0.6) 16%, rgba(41,60,96,0) 16%, rgba(41,60,96,0) 100%), url(/assets/adweek.jpg)"'>
+								<div class="article_card">
+									<div class="card_overlay"></div>
+									<div class="article_meta_wrapper">
+										<div class="article_date px-4 pt-4">4/12/2022</div>
+										<div class="article_source pt-3 px-4 fw-bold fs-3">AdWeek</div>
+										
+										<div class="article_title mt-1 px-4">Update Your Legacy Mindset About Media and Embrace TV Convergence</div>
+									</div>
+								</div>
+							</a>
+							
+							<a href="https://www.forbes.com/sites/bradadgate/2021/05/04/after-a-year-of-media-disruption-the-tv-upfronts-remain-unchanged-how-long-can-it-last/?sh=3e10c00c5b12" target="_blank" rel="noopener nofollow" style="background-image: linear-gradient(180deg, rgba(41,60,96,0.6) 0%, rgba(41,60,96,0.6) 16%, rgba(41,60,96,0) 16%, rgba(41,60,96,0) 100%), url(/images/ss-article-3.jpeg);" class="each_article" onmouseover='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.8) 0%, rgba(41,60,96,0.8) 100%), url(/images/ss-article-3.jpeg)"' 
+							onmouseout='this.style.backgroundImage="linear-gradient(180deg, rgba(41,60,96,0.6) 0%, rgba(41,60,96,0.6) 16%, rgba(41,60,96,0) 16%, rgba(41,60,96,0) 100%), url(/images/ss-article-3.jpeg)"'>
+								<div class="article_card">
+									<div class="card_overlay"></div>
+									<div class="article_meta_wrapper">
+										<div class="article_date px-4 pt-4">5/4/2021</div>
+										<div class="article_source pt-3 px-4 fw-bold fs-3">Forbes</div>
+										
+										<div class="article_title mt-1 px-4">After A Year Of Media Disruption, The TV Upfronts Remain Unchanged. How Long Can It Last?</div>
+									</div>
+								</div>
+							</a>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
 		</section>
 		
 		<section class="container my-5 mt-5 pt-md-5" id="philanthropy">
@@ -576,20 +558,6 @@
 			</div>
 		</section>
 		
-		<!-- <section class="darkbg py-5">
-			<div class="container py-3">
-				<div class="row">
-					<div class="col">
-						<a href="https://scottyschiller.substack.com/" target="_blank" rel="nofollow noopener" class="li_cta py-3 ps-4 pe-3 d-flex justify-content-between align-items-center">
-							Sign Up For Scott's Newsletter
-							<svg xmlns="http://www.w3.org/2000/svg" class="li_arrow">
-							  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M50 32.002 14 32.002M36 46 50 32 36 18"/>
-							</svg>
-						</a>
-					</div>
-				</div>
-			</div>
-		</section> -->
 	</main>
 	<footer id="footer" class="py-5">
 		<div class="container">

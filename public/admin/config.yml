@@ -14,7 +14,6 @@ collections:
       - { label: "Source", name: "source", widget: "string"}
       - { label: "Date", name: "date", widget: "datetime", date_format: "M/D/YY", time_format:false, picker_utc: false }
       - { label: "Link", name: "link", widget: "string" }
-      - { label: "Use Logo", name: "logo", widget: "boolean", default: true, comment: "Select whether you will use the logo or a full background image" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Tags", name: "tags", widget: "list", default: ["articles"] }
   - name: "media"
