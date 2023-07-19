@@ -92,8 +92,8 @@
 			.prof_carousel_wrapper { grid-column: 1 / 3; grid-row: 2 / 4; }
 			.prof_carousel.swiper,
 			.swiperServices.swiper { overflow-x: clip; }
-			.about_logos { row-gap: 1.5rem; }
-			.about_logos img { opacity: 0.4; transition: all 0.25s ease; width: fit-content; }
+			#about { max-width: 1300px; }
+			.about_logos img { opacity: 0.4; transition: all 0.25s ease; }
 				.about_logos img:hover { opacity: 1; }
 			
 			
@@ -161,7 +161,7 @@
 			.swiper-pagination-bullet-active { background-color:var(--body-on-lightbg); }
 			.prof_pag .swiper-pagination-bullet { background-color:rgb(160 187 215); opacity: 0.4; }
 			.prof_pag .swiper-pagination-bullet-active { background-color:rgb(160 187 215); opacity: 1; }
-			
+			.pic_grid { max-width: 1440px; margin: auto; }
 			footer#footer { background-color: rgba(0, 63, 149, 0.05); }
 			footer#footer ul { list-style-type: none; margin:0; padding:0; }
 				footer#footer ul li {  }	
@@ -213,7 +213,6 @@
 				.play_button { width: 3rem; height: 3rem; }
 				.play_triangle { border-width: 0.5rem 0 0.5rem 0.85rem; }
 				.article_title { font-size:1.15rem }
-				.about_logos { row-gap: 2.25rem; }
 			}
 			
 		</style>
@@ -269,30 +268,54 @@
 		</div>
 	</header>
 	<main>
-		<section class="container py-md-5" id="about">
+		<section class="container-fluid py-md-5" id="about">
 			<div class="row d-flex my-5">
 				<div class="col-md-5 d-flex flex-column">
 					<h3 class="fs-1 mb-4 mb-md-1">Scott Schiller is an expert in business model pivot and transformation.</h3>
-					<div class="mt-auto about_logos d-none d-md-flex flex-nowrap justify-content-start flex-column">
-						<img src="assets/NBCUniversal-logo.png" alt="NBCUniversal logo" />
-						<img src="assets/progress-partners.png" alt="Progress Partners logo" width="164" style="width:164px;" />
-						<img src="assets/big-village.png" alt="Big Village logo" />
-						<img src="assets/AOL.png" alt="AOL. logo" />
-						<img src="assets/Walt_Disney_Company.png" />
-						<img src="assets/MTV_Networks.png" alt="MTV Networks logo" />
+					<div class="row about_logos d-none d-md-flex align-items-center text-center mt-5">
+						<div class="col-6 col-lg-4 mb-4">
+							<img src="assets/NBCUniversal-logo.png" alt="NBCUniversal logo" width="160" height="19" loading="lazy" class="img-fluid" style="max-width:127px;" />
+						</div>
+						<div class="col-6 col-lg-4 mb-4">
+							<img src="assets/progress-partners.png" alt="Progress Partners logo" width="200" height="46" loading="lazy" class="img-fluid" style="max-width:128px;" />
+						</div>
+						<div class="col-6 col-lg-4 mb-4">
+							<img src="assets/big-village.png" alt="Big Village logo" loading="lazy" width="157" height="18" class="img-fluid" style="max-width:125px;" />
+						</div>
+						<div class="col-6 col-lg-4 mb-4">
+							<img src="assets/AOL.png" alt="AOL. logo" loading="lazy" width="56" height="22" class="img-fluid" style="max-width:44px;" />
+						</div>
+						<div class="col-6 col-lg-4 mb-4">
+							<img src="assets/Walt_Disney_Company.png" width="187" height="28" loading="lazy" class="img-fluid" style="max-width:150px;" />
+						</div>
+						<div class="col-6 col-lg-4 mb-4">
+							<img src="assets/MTV_Networks.png" alt="MTV Networks logo" width="169" height="16" loading="lazy" class="img-fluid" style="max-width:134px;" />
+						</div>
 					</div>
 				</div>
 				<div class="col-md-6 offset-md-1">
 					<p>Schiller, a founder and former chairman of The Interactive Advertising Bureau, brings comprehensive expertise in content, media, and tech. He recently served as Global Chief Commercial Officer at Big Village, a New York-based ad-tech firm, and has taught at NYU Stern School of Business for over five years.</p>
 					<p>Schiller's career spans senior roles in Fortune 50 firms to startups, including a decade at Comcast, establishing NBCUniversal's digital video ad sales business.</p>
 					<p>He holds a BA in Economics from Cornell University and an MBA from Northwestern's Kellogg School of Management.</p>
-					<div class="about_logos d-flex flex-column flex-nowrap justify-content-center d-md-none my-5">
-						<img src="assets/NBCUniversal-logo.png" alt="NBCUniversal logo" class="mx-auto" />
-						<img src="assets/progress-partners.png" alt="Progress Partners logo" class="mx-auto" />
-						<img src="assets/big-village.png" alt="Big Village logo" class="mx-auto" />
-						<img src="assets/AOL.png" alt="AOL. logo" class="mx-auto" />
-						<img src="assets/Walt_Disney_Company.png" class="mx-auto" />
-						<img src="assets/MTV_Networks.png" alt="MTV Networks logo" class="mx-auto" />
+					<div class="row about_logos d-flex justify-content-center d-md-none my-5 text-center">
+						<div class="col-12 col-sm-6 mb-2">
+							<img src="assets/NBCUniversal-logo.png" alt="NBCUniversal logo" width="160" height="19" loading="lazy" class="img-fluid" style="max-width:127px;" />
+						</div>
+						<div class="col-12 col-sm-6 mb-4">
+							<img src="assets/progress-partners.png" alt="Progress Partners logo" width="200" height="46" loading="lazy" class="img-fluid" style="max-width:128px;" />
+						</div>
+						<div class="col-12 col-sm-6 mb-4">
+							<img src="assets/big-village.png" alt="Big Village logo" loading="lazy" width="157" height="18" class="img-fluid" style="max-width:125px;" />
+						</div>
+						<div class="col-12 col-sm-6 mb-4">
+							<img src="assets/AOL.png" alt="AOL. logo" loading="lazy" width="56" height="22" class="img-fluid" style="max-width:44px;" />
+						</div>
+						<div class="col-12 col-sm-6 mb-4">
+							<img src="assets/Walt_Disney_Company.png" width="187" height="28" loading="lazy" class="img-fluid" style="max-width:150px;" />
+						</div>
+						<div class="col-12 col-sm-6 mb-4">
+							<img src="assets/MTV_Networks.png" alt="MTV Networks logo" width="169" height="16" loading="lazy" class="img-fluid" style="max-width:134px;" />
+						</div>
 					</div>
 				</div>
 			</div>
@@ -306,9 +329,10 @@
 							<div class="prof_carousel_wrapper">
 								<div class="prof_carousel swiper">
 									<div class="swiper-wrapper">
-										<img class="img-fluid swiper-slide" src="assets/nyu-stern-2.jpg" alt="Scott Schiller at NYU Stern School" width="600" height="500" />
-										<img class="img-fluid swiper-slide" src="assets/nyu-stern-3.jpg" alt="Scott Schiller at NYU Stern School" width="600" height="500" />
-										<img class="img-fluid swiper-slide" src="assets/nyu-stern-1.jpg" alt="Scott Schiller at NYU Stern School" width="600" height="500" />
+										<img class="img-fluid swiper-slide" src="assets/nyu_stern-1.jpg" alt="Scott Schiller at NYU Stern School" width="636" height="530" loading="lazy" />
+										<img class="img-fluid swiper-slide" src="assets/nyu_stern-2.jpg" alt="Scott Schiller at NYU Stern School" width="636" height="530" loading="lazy" />
+										<img class="img-fluid swiper-slide" src="assets/nyu-stern-1.jpg" alt="Scott Schiller at NYU Stern School" width="600" height="500" loading="lazy" />
+										<img class="img-fluid swiper-slide" src="assets/nyu_stern-4.jpg" alt="Scott Schiller at NYU Stern School" width="636" height="530" loading="lazy" />
 									</div>
 									<div class="swiper-pagination prof_pag"></div>
 								</div>
@@ -536,7 +560,7 @@
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 601 127" style="max-height:32px;"><title>Make-A-Wish logo</title><path fill="#0066B5" d="M262.4 94.1v1.5c0 .8-.6 1.4-1.4 1.4h-10.5c-.8 0-1.4-.6-1.4-1.4v-1.5c0-.8.6-1.4 1.4-1.4H261c.7-.1 1.4.6 1.4 1.4Zm-25.2-12.9c1 3.2 1.5 6.8 1.5 11v4.9h-35.3c.1 3.9.5 7.2 1.2 10s1.7 5.1 3 6.9c1.3 1.8 3 3.1 4.9 4 1.9.8 4.2 1.3 6.7 1.3 1.8 0 3.5-.2 5.1-.6 1.6-.4 3-1 4.3-1.7 1.3-.7 2.4-1.5 3.4-2.4 1-.9 1.8-1.8 2.4-2.8.5.2.9.6 1.4 1.3.4.7.6 1.4.6 2.3 0 1.1-.4 2.2-1.1 3.4-.8 1.2-1.9 2.4-3.5 3.4s-3.5 1.9-5.8 2.6c-2.3.7-5.1 1-8.2 1-3.8 0-7.3-.6-10.3-1.9-3-1.3-5.6-3.2-7.7-5.7-2.1-2.5-3.7-5.5-4.8-9.1-1.1-3.6-1.7-7.7-1.7-12.3 0-9.9 2-17.3 6.1-22.3s9.9-7.5 17.4-7.5c3.4 0 6.5.5 9.2 1.6 2.7 1.1 5 2.7 6.9 4.8 1.8 2.1 3.2 4.7 4.3 7.8ZM228 91.4c0-2.8-.2-5.3-.6-7.7-.4-2.3-1.1-4.3-2-5.9-.9-1.7-2.1-2.9-3.5-3.8-1.5-.9-3.3-1.3-5.4-1.3-3.9 0-7 1.6-9.1 4.8-2.1 3.2-3.4 7.8-3.7 14H228v-.1ZM41.9002 109.7l-21.9-60.5H.200195v4.4C5.2002 53.6 5.80019 55.3 5.80019 59v55.9c-.1 3.7-.69999 5.4-5.599995 5.4v4.4H17.9002v-4.4c-5 0-5.6-1.7-5.6-5.4V57.3l24.6 67.5h5.7l24.3-67.7v57.8c-.1 3.7-.7 5.4-5.6 5.4v4.4h21.5v-4.4c-5 0-5.6-1.7-5.6-5.4V59c.1-3.7.7-5.4 5.6-5.4v-4.4h-19.2l-21.7 60.5ZM188.4 118.1c-1.8-1.5-3.6-3.6-5.5-6.5l-14.1-20.9 7.4-8.4c2.8-3.1 5.3-5.6 7.7-7.3 2.4-1.7 4.8-2.6 7.2-2.6V68H170v4.4c4.8 0 6 1.4 3.1 4.9-2.9 3.2-5.5 6.1-6 6.6l-12 13.1V44.1h-15.6v4.4c5 0 5.6 1.7 5.6 5.4v60.8c-.1 3.7-.7 5.4-5.6 5.4v4.4h21.2v-4.4c-5 0-5.6-1.7-5.6-5.4v-9.3l6.9-7.7 10.1 15.5c1.5 2.3 2.9 4.2 4 5.6 3.6 4.4 5.4 7 11.4 7 6.5 0 7.3-5.5 7.3-5.5h-.3c-2.2 0-4.3-.7-6.1-2.2Zm-52.2 2.2v.3c0 1.1-.6 5.3-7.1 5.3-6.9 0-8.6-8.6-8.9-10v-.2c-1.1 1.5-3.4 10.1-17.4 10.1-2.3 0-4.4998-.3-6.4998-1s-3.8-1.7-5.2-3.1c-1.5-1.4-2.6-3.2-3.4-5.3-.8-2.1-1.2-4.6-1.2-7.5 0-5.6 2-9.8 6-12.5C100.5 90.9 112.1 91.6 119.4 91.6v-6.4c0-1.9-.1-3.6-.3-5.2-.2-1.6-.7-3-1.3-4.1-.7-1.2-1.7-2.1-3-2.7-1.3-.6-3-1-5.2-1-2 0-3.7.3-4.9.9-1.3.6-2.2 1.4-3 2.4-.7 1-1.2 2.3-1.4 3.7-.2 1.4-.3998 2.9-.3998 4.6-2.9 0-5.2-.5-6.7-1.5s-2.3-2.7-2.3-5.2c0-1.8.5-3.4 1.5-4.7 1-1.3 2.4-2.3 4.1-3.1 1.7-.8 3.7998-1.4 6.0998-1.8 2.3-.4 4.8-.6 7.4-.6 3.2 0 6.1.3 8.5 1 2.4.6 4.4 1.7 6 3.1 1.6 1.4 2.8 3.3 3.6 5.7.8 2.3 1.2 5.2 1.2 8.6v27.5c0 1.5.1 2.5.3 3.5 1.1 5.9 6.6 4 6.6 4Zm-16.8-24.1c-5.2 0-14.3-.6-19.2 3.6-1.1998 1.1-2.0998 2.4-2.6998 4-.5 1.6-.8 3.4-.8 5.5 0 3.3.7 5.8 2.1 7.4 1.3998 1.6 3.5998 2.5 6.4998 2.5 2.1 0 4.1-.3 5.8-1 1.7-.7 3.2-1.7 4.4-2.9 1.2-1.3 2.2-2.8 2.8-4.7.7-1.8 1-3.9 1-6.1v-8.3h.1Zm456.3 18V87.7c0-13.1-5.6-20.7-18.5-20.7-6.9 0-12.8 2.7-15.9 9.1V44.4h-15.6v4.4c5 0 5.6 1.7 5.6 5.4V115c-.1 3.7-.7 5.4-5.6 5.4v4.4H547v-4.4c-5 0-5.6-1.7-5.6-5.4V92.2c0-9.5 4-18.4 12.8-18.4s11.6 5.6 11.6 14.5v28.5c0 3.8 2.3 9.5 10.2 9.5 5.7 0 6.8-4.3 6.8-4.3s-7.1.8-7.1-7.8Zm20.2 6.8c.2 1.1.4 1.4.5 1.7h-1.7c-.2-.3-.3-.9-.6-1.7-.1-.7-.6-1.1-1.5-1.1h-.8v2.8h-1.6v-7c.6-.1 1.5-.2 2.7-.2 1.3 0 1.9.2 2.4.6.4.3.7.8.7 1.5 0 .9-.6 1.4-1.5 1.7v.1c.8.1 1.2.7 1.4 1.6Zm-1.5-3.2c0-.6-.5-1.1-1.5-1.1-.4 0-.7 0-.9.1v2h.8c.8 0 1.6-.3 1.6-1Zm-249.6 3.6h1.4v4.4h-29.1v-4.4h2.4c5.5 0 7.1-3 6.1-6.9-.2-.6-.4-1.3-.6-2.1l-3-8.6c-4.7 1.7-10 2.6-15.7 2.6-5.3 0-10.2-.8-14.6-2.4l-2.8 7.6c-.3.8-.6 1.7-.7 2.5-.7 3.4.2 5.1 1.5 6 1.2.8 2.9 1.2 5.3 1.2h2.4v4.4h-25.9v-4.4h2c1 0 1.9-.1 2.6-.3 1.7-.5 2.8-2.2 3.6-3.8.5-1.1 1.1-2.5 1.8-4.1l4.3-11.6c-14.8-7.8-23-23.9-23-40.5 0-45.6 50.7-60.600006 94.1-60.600006C394.8.399994 432.3 14.6 452.9 30c.2.1.2.3.1.5s-.3.2-.5.1c-15-8-47.7-23.1-93.1-23.1C319.8 7.5 270 20 270 62c0 14.2 6.9 26.7 17.9 33.6l17-45.6h8.3l16.5 45.3c6.6-4.2 11.5-10.4 14.5-17.8.1-.2.2-.2.4-.2s.3.2.2.4c-1.3 8.3-6.2 15.9-13.8 21.2l6.1 16.7c.4 1.1.8 2 1.3 2.7 1.6 2.6 3.7 3.1 6.4 3.1Zm-24.2-21.7-13.4-38.1-13.5 37c4.5 1.8 9.4 2.9 14.7 2.9 4.3 0 8.4-.6 12.2-1.8Zm279.6 19.4c0 3.9-3.2 7-7.2 7s-7.2-3.1-7.2-7 3.2-7 7.2-7 7.2 3.1 7.2 7Zm-1.3 0c0-3.2-2.6-5.7-5.9-5.7-3.3 0-5.9 2.5-5.9 5.7s2.6 5.7 5.9 5.7c3.3 0 5.9-2.5 5.9-5.7ZM474 34.8c-.3-.3-.5-.8-.4-1.2l1.5-7.1c.1-.5-.4-.8-.8-.6l-6.4 3.4c-.4.2-.9.2-1.3 0l-6.3-3.6c-.4-.2-.9.1-.8.6l1.2 7.2c.1.4-.1.9-.4 1.2l-5.4 4.9c-.4.3-.2.9.3 1l7.2 1c.4.1.8.4 1 .8l3 6.6c.2.4.8.4 1 0l3.2-6.5c.2-.4.6-.7 1-.7l7.2-.8c.5-.1.7-.6.3-1l-5.1-5.2Zm43.4 64c-1.3-1.3-2.9-2.6-4.9-3.7-2-1.1-4.4-2.3-7.2-3.5-2.3-1-4.4-1.8-6-2.6-1.7-.8-3-1.6-4.1-2.4-1.1-.8-1.8-1.7-2.3-2.7-.5-1-.7-2.1-.7-3.5 0-1.2.2-2.4.6-3.4.4-1 1-1.9 1.8-2.7.8-.8 1.9-1.3 3.1-1.8 1.3-.4 2.8-.6 4.6-.6 3.1 0 5.4 1 6.9 2.9 1.5 2 2.2 4.7 2.2 8.3 2.4 0 4.3-.6 5.7-1.7 1.4-1.1 2-2.7 2-4.6 0-1.3-.3-2.6-1-3.7-.7-1.2-1.6-2.2-2.9-3.1-1.3-.9-2.9-1.6-4.9-2.1-1.9-.5-4.2-.8-6.7-.8-3 0-5.7.3-8.2 1-2.5.7-4.6 1.6-6.3 2.9-1.8 1.3-3.1 2.8-4.1 4.7-.9 1.9-1.4 4-1.4 6.4 0 2.3.3 4.3 1 6 .7 1.7 1.6 3.2 2.9 4.5 1.3 1.3 3 2.5 5 3.6s4.4 2.3 7.1 3.5c2.5 1.1 4.7 2.1 6.4 2.9 1.7.9 3 1.7 4 2.5s1.7 1.7 2.1 2.7c.4.9.6 2.1.6 3.4 0 1.4-.3 2.7-.8 3.9-.5 1.2-1.3 2.2-2.2 3.1-1 .8-2.2 1.5-3.6 2s-3.1.7-5 .7c-2.1 0-3.9-.4-5.4-1.1-1.5-.7-2.6-1.7-3.5-2.9-.9-1.2-1.5-2.6-1.9-4.3-.4-1.6-.6-3.4-.6-5.2-.6 0-1.3.1-2.1.3-.8.2-1.5.6-2.2 1.2-.7.5-1.2 1.3-1.7 2.3-.5.9-.7 2.1-.7 3.5 0 1.9.4 3.5 1.2 4.9.8 1.4 2 2.6 3.5 3.5 1.5 1 3.4 1.7 5.5 2.1 2.2.5 4.6.7 7.2.7 3.1 0 6-.3 8.6-1 2.6-.7 4.8-1.7 6.6-3.1 1.8-1.4 3.2-3.1 4.2-5.2s1.5-4.5 1.5-7.2c0-2.2-.3-4.2-.9-5.8-.7-1.9-1.7-3.5-3-4.8Zm-158-6.2h-10.5c-.8 0-1.4.6-1.4 1.4v1.5c0 .8.6 1.4 1.4 1.4h10.5c.8 0 1.4-.6 1.4-1.4V94c0-.7-.6-1.4-1.4-1.4Zm99.7-42.4h-22.5v4.4h2.4c2.3 0 4 .4 5.2 1.2 1.1.8 1.7 2.1 1.7 3.9 0 1.2-.8 4.3-1.1 5.5l-13.6 46.5-17.5-60.8H406l-16.8 62.4-14-49.9c-.2-.8-.4-1.5-.6-2.1-.5-1.9-.3-4.3 1.3-5.6 1-.8 2.6-1.2 4.7-1.2h2.4v-4.4h-28.8v4.4c2.1 0 4.4-.1 6.1 1.1 1.4 1 2.1 2.7 2.7 4.4l19.1 64.7h9.6l16-58.5 17 58.5h9.4L452 62.6c.5-1.7 1-3.1 1.5-4.2 1.4-3 3-3.7 5.4-3.9v-4.3h.2Zm13.8 64.7V68h-14.3l-1.3 4.4c5 0 5.6 1.7 5.6 5.4v-.1 37.2c-.1 3.7-.7 5.4-5.6 5.4v4.4h21.2v-4.4c-4.9 0-5.5-1.7-5.6-5.4Z"/></svg>
 							<p class="mb-0 pb-0 pt-4">Board member. 6 years – Metro NY Chapter. Activities: CEO Search Committee, member; Governance Committee, Chair</p>
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-4 my-5 my-sm-0">
 							<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 192 143.30667" style="max-height:44px;"><title>George Washington University logo</title><path fill="#093455" d="m160.90133 116.095737-22.370667-49.038532-21.6036 49.038532h-3.656266L85.713065 27.38014h14.026533l17.572932 59.004665 20.463467-45.483866h2.653333l20.598666 45.241732 17.690666-58.762531h13.270667l-27.418666 88.715597ZM67.651597 81.593072H45.789066V68.828005H80.92453v40.8172c-8.849066 5.562532-19.585466 8.846399-32.479199 8.846399-26.286533 0-48.40054-18.710933-48.40054-46.754266 0-29.704132 23.256807-47.018665 49.66094-47.018665 9.104667 0 17.314533 1.263467 24.897866 4.168667v13.145866h-.121867c-7.840533-3.285333-16.812932-4.673867-24.651066-4.673867-22.741599 0-35.003065 14.7864-35.003065 34.2468 0 20.091199 14.282266 34.372399 34.378132 34.372399 7.197867 0 13.008266-1.007867 18.445866-3.661467v-20.724"/><path fill="#aa9a5c" d="M0 12.086407V-.005326h191.999995v12.091733ZM0 143.30667v-12.091146h191.999995v12.091146H0"/></svg>
 							<p class="mb-0 pb-0 mt-3">Family Philanthropy Council</p>
 						</div>
@@ -559,7 +583,10 @@
 				</div>
 			</div>
 		</section>
-		
+		<section class="pic_grid">
+			<img src="assets/photo-grid-desktop.webp" class="img-fluid d-none d-md-block" alt="Scott Schiller Panorama" loading="lazy" />
+			<img src="assets/photo-grid-mobile.webp" class="img-fluid d-block d-md-none" alt="Scott Schiller Panorama" loading="lazy" />
+		</section>
 	</main>
 	<footer id="footer" class="py-5">
 		<div class="container">
