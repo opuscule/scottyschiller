@@ -35,8 +35,10 @@
 			}
 			:root {
 			  --bluebg: #1C294F;
+			  --mdblue: #003F95;
 			  --body-on-lightbg: #172B52;
 			  --body-on-darkbg: #A0BBD7;
+			  --title-color: #C9D6DA;
 			  --cta-yellow: #FFCA3C;
 			  --body_font: 'Manrope', sans-serif;
 			  --transition_all: all 0.3s ease;
@@ -44,8 +46,10 @@
 			body, html { font-family: var(--body_font); color: var(--body-on-lightbg); }
 			h1, h2, h3, h4, h5, h6 { font-family: 'hatton', serif; }
 			.darkbg { background-color: var(--bluebg); }
+			.title-color { color: var(--title-color); }
 			.titlereset { font-family: var(--body_font); }
 			.text_on_darkbg { color: var(--body-on-darkbg); }
+			.mdblue { color: var(--mdblue) !important; }
 			.sslogo { font-family: 'Manrope',sans-serif; font-weight: 800; font-size: 1.5rem; line-height: 1; }
 				.sslogo span { color: var(--body-on-darkbg); }
 			.nav-link { color: var(--body-on-darkbg); }
@@ -81,10 +85,12 @@
 				header#header h5 { font-size: 2rem; }
 				.scott_is { max-width: 80vw; max-height: 6vh; overflow: auto !important; margin-bottom:20vh; }
 			}
-			
-			.nyu_stern_img { margin-top:-3rem; }
+			.stern_container { margin-top: 7.5rem; margin-bottom:9rem; }
+			@media (max-width:768px) {
+				.stern_container { margin-top: 5rem; margin-bottom:5rem; }	
+			}
 			.prof_img_wrapper { display: grid; grid-template-columns: 4fr 1fr; grid-template-rows: auto 1.25rem 1fr; }
-			.prof_logo { grid-column: 1 / 2; grid-row: 1 / 2; background-color: #003F95; height: 100%; z-index: 2;}
+			.prof_logo { grid-column: 1 / 2; grid-row: 1 / 2; background-color: var(--mdblue);  height: 100%; z-index: 2;}
 				.prof_logo img { opacity: 0.3; }
 			.prof_flourish_1 { background-color: #003886; grid-column: 2 / 3; grid-row: 1 / 3; height: 100%; z-index: 2; }
 			.prof_flourish_2_wrapper { grid-column: 1 / 2; grid-row: 3 / 4; z-index: 2; display: flex; align-items: flex-end; }
@@ -92,9 +98,23 @@
 			.prof_carousel_wrapper { grid-column: 1 / 3; grid-row: 2 / 4; }
 			.prof_carousel.swiper,
 			.swiperServices.swiper { overflow-x: clip; }
-			#about { max-width: 1300px; }
-			.about_logos img { opacity: 0.4; transition: all 0.25s ease; }
-				.about_logos img:hover { opacity: 1; }
+			
+			@keyframes carousel {
+				from { transform: translateX(0); }
+				to { transform: translateX(-100%); }
+			}
+			
+			.logo_carousel { list-style-type: none; margin: 0; padding: 0; display: flex; flex-direction: column;  align-items: center; }
+			
+			@media (min-width:600px) {
+				#logo_carousel_container { overflow: hidden; white-space: nowrap; display: flex; margin: 7.5rem 0;  }
+				.logo_carousel { flex-direction: row; flex-wrap: nowrap; column-gap: 5rem; animation: 30s carousel infinite linear; margin-right:5rem; }
+			}
+			@media (max-width:600px) {
+				#logo_carousel_container { margin: 5rem 0 6rem; padding-left: 1.5rem; padding-right:1.5rem; }
+				.logo_carousel { row-gap:3rem; }
+				.logo_carousel.lc_dup { display:none; }
+			}
 			
 			
 			.my_articles { display:flex; gap:1.5rem; overflow-x: scroll; }
@@ -113,11 +133,11 @@
 			
 			.article_date { color: var(--body-on-lightbg); }
 			
-			.article_source { color: var(--body-on-lightbg); margin-bottom: 1.5rem; }
+			.article_source { color: var(--body-on-lightbg); }
 			
 			.article_meta_wrapper { height: 100%; }
 				
-			.article_title { color: var(--body-on-lightbg); font-size: 1.5rem; line-height: 1.2; transition:var(--transition_all); }
+			.article_title { color: var(--body-on-lightbg); transition:var(--transition_all); }
 				
 			.article_read { color: var(--body-on-lightbg); transition: var(--transition_all); }
 			.article_read span { transition: var(--transition_all); }
@@ -126,9 +146,6 @@
 				display: inline-block;
 			}
 			
-			
-			.darkbg_grad { background: rgb(28,41,79); overflow-x:hidden;
-				background: linear-gradient(180deg, rgba(28,41,79,1) 0%, rgba(28,41,79,1) 55%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 100%); }
 			
 			.play_btn_wrapper { display: flex;
 				align-items: center;
@@ -192,7 +209,7 @@
 			.footerCTA h3 { font-family: 'Manrope',sans-serif; font-weight: 200; font-size: clamp(1.5rem, 0.2349rem + 3.8193vw, 4rem); }
 				.footerCTA h3 a { text-decoration: none; color: var(--body-on-lightbg); }
 					.footerCTA h3 a:hover,
-					.footerCTA h3 a:focus { color:#003F95; }
+					.footerCTA h3 a:focus { color: var(--mdblue); }
 					
 			.footer_li svg { fill: var(--body-on-lightbg); transition: all 0.25s ease; }
 				.footer_li:hover svg,
@@ -252,13 +269,10 @@
 					<h1 class="text-center text-light" >Scott Schiller</h1>
 					
 					<div class="swiper scott_is">
-						<div class="swiper-wrapper text-center" style="color:#FFF;">
-							<h5 class="swiper-slide" data-swiper-autoplay="3500">Catalyst for Growth</h5>
-							<!-- <h5 class="swiper-slide">Media Leader</h5> -->
-							<h5 class="swiper-slide">Proven Commercial Leader</h5>
-							<!-- <h5 class="swiper-slide">Business Builder</h5> -->
-							<!-- <h5 class="swiper-slide">Nonprofit Board Member</h5> -->
-							<h5 class="swiper-slide">Mentor</h5>
+						<div class="swiper-wrapper text-center">
+							<h5 class="swiper-slide text-white">Catalyst for Growth</h5>
+							<h5 class="swiper-slide text-white">Proven Commercial Leader</h5>
+							<h5 class="swiper-slide text-white">Mentor</h5>
 						</div>
 					</div>
 				</div>
@@ -266,144 +280,79 @@
 		</div>
 	</header>
 	<main>
-		<section class="container-fluid py-md-5" id="about">
-			<div class="row d-flex my-5">
-				<div class="col-md-5 d-flex flex-column">
+		<section class="container pt-md-5" id="about">
+			<div class="row my-5">
+				<div class="col-md-5 flex-column">
 					<h3 class="fs-1 mb-4 mb-md-1">Scott Schiller is an expert in business model pivot and transformation.</h3>
-					<div class="row about_logos d-none d-md-flex align-items-center text-center mt-5">
-						<div class="col-6 col-lg-4 mb-4">
-							<img src="assets/NBCUniversal-logo.png" alt="NBCUniversal logo" width="160" height="19" loading="lazy" class="img-fluid" style="max-width:127px;" />
-						</div>
-						<div class="col-6 col-lg-4 mb-4">
-							<img src="assets/progress-partners.png" alt="Progress Partners logo" width="200" height="46" loading="lazy" class="img-fluid" style="max-width:128px;" />
-						</div>
-						<div class="col-6 col-lg-4 mb-4">
-							<img src="assets/big-village.png" alt="Big Village logo" loading="lazy" width="157" height="18" class="img-fluid" style="max-width:125px;" />
-						</div>
-						<div class="col-6 col-lg-4 mb-4">
-							<img src="assets/Walt_Disney_Company.png" width="187" height="28" loading="lazy" class="img-fluid" style="max-width:150px;" />
-						</div>
-						<div class="col-6 col-lg-4 mb-4">
-							<div class="d-flex justify-content-around">
-								<img src="assets/AOL.png" alt="AOL. logo" loading="lazy" width="56" height="22" class="img-fluid" style="width:44px; height:auto;" />
-								<img src="assets/iab.png" alt="IAB logo" width="140" height="71" loading="lazy" class="img-fluid" style="width:44px;" />
-							</div>
-						</div>
-						<div class="col-6 col-lg-4 mb-4">
-							<img src="assets/MTV_Networks.png" alt="MTV Networks logo" width="169" height="16" loading="lazy" class="img-fluid" style="max-width:134px;" />
-						</div>
-						<div class="col-6 col-lg-4 mb-4">
-							<img src="assets/fireside-logo.png" alt="Fireside logo" width="250" height="65" loading="lazy" class="img-fluid" style="max-width:134px;" />
-						</div>
-						<div class="col-6 col-lg-4 mb-4">
-							<img src="assets/optimal-logo.png" alt="Optimal logo" width="250" height="57" loading="lazy" class="img-fluid" style="max-width:134px;" />
-						</div>
-						<div class="col-6 col-lg-4 mb-4">
-							<img src="assets/make-a-wish.png" alt="Make-a-Wish logo" width="140" height="30" loading="lazy" class="img-fluid" style="max-width:130px;" />
-						</div>
-					</div>
 				</div>
 				<div class="col-md-6 offset-md-1">
-					<p>Schiller, a founder and former chairman of The Interactive Advertising Bureau, brings comprehensive expertise in content, media, and tech. He recently served as Global Chief Commercial Officer at Big Village, a New York-based ad-tech firm, and has taught at NYU Stern School of Business for over five years.</p>
-					<p>Schiller's career spans senior roles in Fortune 50 firms to startups, including a decade at Comcast, establishing NBCUniversal's digital video ad sales business.</p>
-					<p>He holds a BA in Economics from Cornell University and an MBA from Northwestern's Kellogg School of Management.</p>
-					<div class="row about_logos d-flex justify-content-center d-md-none my-5 text-center">
-						<div class="col-12 col-sm-6 mb-2">
-							<img src="assets/NBCUniversal-logo.png" alt="NBCUniversal logo" width="160" height="19" loading="lazy" class="img-fluid" style="max-width:127px;" />
-						</div>
-						<div class="col-12 col-sm-6 mb-4">
-							<img src="assets/progress-partners.png" alt="Progress Partners logo" width="200" height="46" loading="lazy" class="img-fluid" style="max-width:128px;" />
-						</div>
-						<div class="col-12 col-sm-6 mb-4">
-							<img src="assets/big-village.png" alt="Big Village logo" loading="lazy" width="157" height="18" class="img-fluid" style="max-width:125px;" />
-						</div>
-						<div class="col-12 col-sm-6 mb-4">
-							<div class="d-flex justify-content-center">
-								<img src="assets/AOL.png" alt="AOL. logo" loading="lazy" width="56" height="22" class="img-fluid me-4" style="width:44px; height:auto;" />
-								<img src="assets/iab.png" alt="IAB logo" width="140" height="71" loading="lazy" class="img-fluid ms-4" style="width:44px;" />
-							</div>
-						</div>
-						<div class="col-12 col-sm-6 mb-4">
-							<img src="assets/Walt_Disney_Company.png" width="187" height="28" loading="lazy" class="img-fluid" style="max-width:150px;" />
-						</div>
-						<div class="col-12 col-sm-6 mb-4">
-							<img src="assets/MTV_Networks.png" alt="MTV Networks logo" width="169" height="16" loading="lazy" class="img-fluid" style="max-width:134px;" />
-						</div>
-						<div class="col-12 col-sm-6 mb-4">
-							<img src="assets/make-a-wish.png" alt="Make-a-Wish logo" width="140" height="30" loading="lazy" class="img-fluid" style="max-width:130px;" />
-						</div>
-						<div class="col-12 col-sm-6 mb-4">
-							<img src="assets/optimal-logo.png" alt="Optimal logo" width="250" height="57" loading="lazy" class="img-fluid" style="max-width:134px;" />
-						</div>
-						<div class="col-12 col-sm-6 mb-4">
-							<img src="assets/fireside-logo.png" alt="Fireside logo" width="250" height="65" loading="lazy" class="img-fluid" style="max-width:134px;" />
-						</div>
-					</div>
+					<p>Scott Schiller has proven experience unlocking growth, driving transformation, and delivering results in the media business.</p>
+					<p>A founder and former chairman of The Interactive Advertising Bureau and recent executive experience at Comcast/NBCUniversal is proof of Schiller's deep level of content, media, and tech knowledge.</p>
+					<p>From Fortune 50 firms to startups, Schiller's executive career and roles as a Global Chief Commercial Officer at Big Village demonstrates his knack for the thriving future of the digital media and technology landscape.</p>
+					<p>With degrees from Cornell University (BA) and Northwestern's Kellogg School of Management (MBA), Schiller is focused on defining the future of media, fueling growth, and delivering lasting enterprise value.</p>
 				</div>
 			</div>
 		</section>
 		
-		<section class="darkbg pb-5">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-md-6 nyu_stern_img mb-5">
-						<div class="prof_img_wrapper">
-							<div class="prof_carousel_wrapper">
-								<div class="prof_carousel swiper">
-									<div class="swiper-wrapper">
-										<img class="img-fluid swiper-slide" src="assets/nyu_stern-1.jpg" alt="Scott Schiller at NYU Stern School" width="636" height="530" loading="lazy" />
-										<img class="img-fluid swiper-slide" src="assets/nyu_stern-2.jpg" alt="Scott Schiller at NYU Stern School" width="636" height="530" loading="lazy" />
-										<img class="img-fluid swiper-slide" src="assets/nyu-stern-1.jpg" alt="Scott Schiller at NYU Stern School" width="600" height="500" loading="lazy" />
-										<img class="img-fluid swiper-slide" src="assets/nyu_stern-4.jpg" alt="Scott Schiller at NYU Stern School" width="636" height="530" loading="lazy" />
-									</div>
-									<div class="swiper-pagination prof_pag"></div>
-								</div>
-							</div>
-							<div class="prof_logo p-4 p-sm-5 p-md-4 p-lg-5"><img src="assets/nyu-stern-logo.webp" alt="NYU Stern School logo" class="img-fluid" width="450" height="74" /></div>
-							<div class="prof_flourish_1"></div>
-							<div class="prof_flourish_2_wrapper"><div class="prof_flourish_2"></div></div>
-						</div>						
-					</div>
-					<div class="col-md-4 offset-md-1 pb-3">
-						<h2 class="text_on_darkbg mt-3 mb-4 mt-md-0" style="color:#C9D6DA;">Adjunct Professor</h2>
-						<p class="text_on_darkbg">Schiller is also an adjunct assistant professor at NYU/Stern, teaching "Technology's Impact on Entertainment and Media."</p>
-						<p class="text_on_darkbg">Schiller brings his hands-on experience to the entertainment business. He works with undergraduate and graduate students as a teacher, mentor, and advisor to student clubs and start-ups.</p>
-					</div>
-				</div>
-			</div>
+		<section id="logo_carousel_container">
+			<ul class="logo_carousel">
+				<li><img src="/assets/carousel/aol.jpg" alt="AOL logo" width="80" height="32" loading="lazy" /></li>
+				<li><img src="/assets/carousel/big-village.png" alt="Big Village logo" width="174" height="20" loading="lazy" /></li>
+				<li><img src="/assets/carousel/cornell.png" alt="Cornell University logo" width="138" height="46" loading="lazy" />
+				<li><img src="/assets/carousel/gw.png" alt="George Washington University logo" width="58" height="44" loading="lazy" /></li>
+				<li><img src="/assets/carousel/make-a-wish.png" alt="Make a Wish logo" width="149" height="44" loading="lazy" /></li>
+				<li><img src="/assets/carousel/MTV_Networks.png" alt="MTV Networks logo" width="210" height="20" loading="lazy" /></li>
+				<li><img src="/assets/carousel/nbc.png" alt="NBC Universal logo" width="167" height="20" loading="lazy" /></li>
+				<li><img src="/assets/carousel/progress-partners.png" alt="Progress Partners logo" width="164" height="36" loading="lazy" /></li>
+				<li><img src="/assets/carousel/Walt_Disney_Company.png" alt="Walt Disney Company logo" width="214" height="32" loading="lazy" />
+			</ul>
+			<ul class="logo_carousel lc_dup">
+				<li><img src="/assets/carousel/aol.jpg" alt="AOL logo" width="80" height="32" loading="lazy" /></li>
+				<li><img src="/assets/carousel/big-village.png" alt="Big Village logo" width="174" height="20" loading="lazy" /></li>
+				<li><img src="/assets/carousel/cornell.png" alt="Cornell University logo" width="138" height="46" loading="lazy" />
+				<li><img src="/assets/carousel/gw.png" alt="George Washington University logo" width="58" height="44" loading="lazy" /></li>
+				<li><img src="/assets/carousel/make-a-wish.png" alt="Make a Wish logo" width="149" height="44" loading="lazy" /></li>
+				<li><img src="/assets/carousel/MTV_Networks.png" alt="MTV Networks logo" width="210" height="20" loading="lazy" /></li>
+				<li><img src="/assets/carousel/nbc.png" alt="NBC Universal logo" width="167" height="20" loading="lazy" /></li>
+				<li><img src="/assets/carousel/progress-partners.png" alt="Progress Partners logo" width="164" height="36" loading="lazy" /></li>
+				<li><img src="/assets/carousel/Walt_Disney_Company.png" alt="Walt Disney Company logo" width="214" height="32" loading="lazy" />
+			</ul>
 		</section>
 		
-		<section id="services" class="container py-5">
+		<section id="services" class="container pb-5">
 			<div class="row pt-3">
+				<div class="col-md-7">
+					<h2 class="fs-2 mdblue">Services</h2>
+					<p>Schiller drives revenue growth in Digital Video and Media sector through a unique combination of strategic leadership and operational excellence.</p>
+				</div>
+			</div>
+			<div class="row mb-4">
 				<div class="col">
-					<h2 class="h1" style="color:#003F95;">Services</h2>
-					<p class="fs-4">Schiller can help you accelerate growth, drive business transformation, and create long-term value.</p>
-					<div class="swiper swiperServices mt-5">
+					<div class="swiper swiperServices mt-4">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide service_each">
-								<h3 class="h2 mb-3">Monetization</h3>
-								<ul>
-									<li>Compelling go-to-market playbook and solutions</li>
-									<li>Curated marketplace connections</li>
-									<li>In-market research that unlocks successful sales strategies</li>
-									<li>Competitive assessment to identify advantages and challenges and develop positioning</li>
+								<h3 class="fs-1 mb-3">Monetization</h3>
+								<ul class="ms-0 ps-4">									
+									<li class="mb-4">GTM positioning and innovation leveraging Media Content and Data</li>
+									<li class="mb-4">Curated industry connections to drive demand.</li>
+									<li>Competitive differentiation strategies to unlock sales.</li>
 								</ul>
 							</div>
 							<div class="swiper-slide service_each">
-								<h3 class="h2 mb-3">Leadership</h3>
-								<ul>
-									<li>Impactful thought-leadership to boost your organization's profile</li>
-									<li>Partnership events and workshops</li>
-									<li>Coaching, training, and mentoring sales and marketing teams that deliver results</li>
+								<h3 class="fs-1 mb-3">Leadership</h3>
+								<ul class="ms-0 ps-4">
+									<li class="mb-4">Impactful executive visibility to boost reputation.</li>
+									<li class="mb-4">Partnership events and workshops to drive thought leadership.</li>
+									<li>Coaching, training, and mentoring sales and marketing teams to boost performance.</li>
 								</ul>
 							</div>
 							<div class="swiper-slide service_each">
-								<h3 class="h2 mb-3">Advisory</h3>
-								<ul>
-									<li>Fractional C-suite leadership for short-term impact</li>
-									<li>Operating partner roles for management team guidance</li>
-									<li>Investment thesis creation</li>
-									<li>Cross-discipline compensation plan development</li>
+								<h3 class="fs-1 mb-3">Advisory</h3>
+								<ul class="ms-0 ps-4">
+									<li class="mb-4">Fractional BD for Advertising, Events, Sponsorships deals.</li>
+									<li class="mb-4">dentifying and executing Content, Distribution Partnerships.</li>
+									<li class="mb-4">Cross-discipline incentive plans.</li>
+									<li>Investment thesis development as operating partner.</li>
 								</ul>
 							</div>
 						</div>
@@ -412,6 +361,10 @@
 				</div>
 			</div>
 		</section>
+		
+		
+		
+		
 		
 		<section class="darkbg pt-4" id="scott_says">
 			<div class="container pt-5">
@@ -427,7 +380,7 @@
 				<div class="row">
 					<div class="col mt-3 mb-5">
 						<a href="https://www.linkedin.com/in/scottschiller/recent-activity/shares/" target="_blank" rel="nofollow noopener" class="li_cta py-3 ps-4 pe-3 d-flex justify-content-between align-items-center">
-							Latest LinkedIn Articles
+							Latest LinkedIn Posts
 							<svg xmlns="http://www.w3.org/2000/svg" class="li_arrow">
 							  <path stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M50 32.002 14 32.002M36 46 50 32 36 18"/>
 							</svg>
@@ -438,7 +391,7 @@
 		</section>
 		
 		
-		<section class="darkbg pt-5 pb-5" id="online_media" style="overflow-x: auto;">
+		<section class="darkbg py-5" id="online_media" style="overflow-x: auto;">
 			<div class="container">
 				<div class="row">
 					<div class="col">
@@ -466,8 +419,8 @@
 		
 		
 		
-		<section class="darkbg_grad pt-5" style="overflow-x:auto;">	
-			<div class="container pb-5">
+		<section class="darkbg py-5" style="overflow-x:auto;">	
+			<div class="container pb-5 mb-3">
 				<div class="row">
 					<div class="col">
 						<div class="my_articles" style="overflow-x: scroll; width: fit-content;">
@@ -478,9 +431,9 @@
 									<div class="article_meta_wrapper p-4 d-flex justify-content-between flex-column">
 										<div>
 											<div class="article_date">{{ post.date | postDate }}</div>
-											<div class="article_source pt-3 fw-bold fs-3">{{ post.data.source }}</div>
+											<div class="article_source mdblue py-4 my-0 fw-bold fs-2 lh-1">{{ post.data.source }}</div>
 											
-											<div class="article_title mt-1">{{ post.data.title }}</div>
+											<div class="article_title fs-4 lh-base">{{ post.data.title }}</div>
 										</div>
 										<div class="article_read fw-bold">Read Article <span>&rarr;</span></div>
 									</div>
@@ -492,23 +445,57 @@
 				</div>
 			</div>
 			
-			
 		</section>
 		
-		<section class="container mb-5 pt-4">
-			<div class="row">
-				<div class="col-sm-6">
-					<h3>Subscribe to Scott's newsletter</h3>
+		
+		<section class="container stern_container">
+			<div class="row align-items-center">
+				<div class="col-md-6 mb-5 mb-md-0">
+					<div class="prof_img_wrapper">
+						<div class="prof_carousel_wrapper">
+							<div class="prof_carousel swiper">
+								<div class="swiper-wrapper">
+									<img class="img-fluid swiper-slide" src="assets/nyu_stern-1.jpg" alt="Scott Schiller at NYU Stern School" width="636" height="530" loading="lazy" />
+									<img class="img-fluid swiper-slide" src="assets/nyu_stern-2.jpg" alt="Scott Schiller at NYU Stern School" width="636" height="530" loading="lazy" />
+									<img class="img-fluid swiper-slide" src="assets/nyu-stern-1.jpg" alt="Scott Schiller at NYU Stern School" width="600" height="500" loading="lazy" />
+									<img class="img-fluid swiper-slide" src="assets/nyu_stern-4.jpg" alt="Scott Schiller at NYU Stern School" width="636" height="530" loading="lazy" />
+								</div>
+								<div class="swiper-pagination prof_pag"></div>
+							</div>
+						</div>
+						<div class="prof_logo p-4 p-sm-5 p-md-4 p-lg-5"><img src="assets/nyu-stern-logo.webp" alt="NYU Stern School logo" class="img-fluid" width="450" height="74" /></div>
+						<div class="prof_flourish_1"></div>
+						<div class="prof_flourish_2_wrapper"><div class="prof_flourish_2"></div></div>
+					</div>						
 				</div>
-				<div class="col-sm-4">
-					<iframe src="https://scottyschiller.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white; max-width:480px !important; width:100%;" frameborder="0" scrolling="no"></iframe>
+				<div class="col-md-4 offset-md-1 pt-5 pt-md-0">
+					<h2 class="mb-4" style="font-size:2rem; line-height: 2rem;">Influencing Media Industry</h2>
+					<p>Schiller brings hands-on expertise to fuel the next generation of leaders. Through NYU's Entertainment, Media, and Technology Program, he educates and mentors rising industry leaders, shaping the entertainment and media industry's future.</p>
+					<p>As Executive-in-Residence at Progress Partners, an investment bank and corporate advisory firm that works with buyers and sellers of emerging growth companies in the sector, Schiller provides industry perspective and works closely to identify new investment opportunities and advise growth-stage companies in the entertainment, media, and technology sectors.</p>
 				</div>
 			</div>
 		</section>
+		
 		<section class="pic_grid">
 			<img src="assets/photo-grid-desktop.webp" class="img-fluid d-none d-md-block" alt="Scott Schiller Panorama" loading="lazy" />
 			<img src="assets/photo-grid-mobile.webp" class="img-fluid d-block d-md-none" alt="Scott Schiller Panorama" loading="lazy" />
 		</section>
+		
+		<section class="darkbg py-5">
+			<div class="container my-4">
+				<div class="row align-items-center">
+					<div class="col-sm-3 offset-sm-1">
+						<h3 class="title-color mb-4 mb-md-0" style="font-size: 2rem; line-height:2.5rem;">Subscribe to Scott's newsletter</h3>
+					</div>
+					<div class="col-sm-4 offset-sm-3">
+						<iframe src="https://scottyschiller.substack.com/embed" width="100%" height="320" style="background:white; max-width:480px !important; width:100%;" frameborder="0" scrolling="no"></iframe>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		
+		
 	</main>
 	<footer id="footer" class="py-5">
 		<div class="container">
@@ -573,8 +560,6 @@
 		let height = window.innerHeight;
 		let width = window.innerWidth;
 		let newheight;
-		console.log(`Start VH: ${height}`);
-		console.log(`Start VW: ${width}`);
 		
 		window.addEventListener("resize", () => {
 			let newheight = window.innerHeight;
@@ -587,16 +572,11 @@
 		(function() {
 			document.addEventListener("scroll", function() {
 				scrollDistance = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
-				// console.log(scrollDistance);
 				if(scrollDistance > height || scrollDistance > newheight){
-					
 				} else {
-					
-						const scrollBannerPercent = ((scrollDistance / (height / 100)) / 100 );
-					
+					const scrollBannerPercent = ((scrollDistance / (height / 100)) / 100 );
 					var oldCss = 'rgba(23,43,82,0)',
 					newCss = oldCss.replace(/[^,]+(?=\))/, scrollBannerPercent);
-					
 					function reset() {
 						document.getElementById("top_Nav").style.backgroundColor = newCss;
 						document.getElementById("topLogo").style.opacity = scrollBannerPercent;
@@ -669,7 +649,7 @@
 			loop: true,
 			direction: "vertical",
 			autoplay: {
-				delay: 2500,
+				delay: 1500,
 				disableOnInteraction: false,
 			  },
 		});
@@ -720,6 +700,10 @@
 			  },
 			},
 		});
+		
+		
+		
+		
 	  if (window.netlifyIdentity) {
 		window.netlifyIdentity.on("init", user => {
 		  if (!user) {
