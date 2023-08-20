@@ -62,14 +62,20 @@
 				.nav-link:hover .li_icon_nav path,
 				.nav-link:focus .li_icon_nav path { fill:#FFF; }
 				
-		
-			.navbar-toggler { border:none !important; }
+			
+			
+			
+			.navbar-toggler { border:none !important; padding: 0 !important; }
 			.navbar-toggler:focus { box-shadow:none !important; }
 			.navbar-toggler .navbar-toggler-icon { background-image: var(--navbar-toggler-icon-open); }
 			.navbar-toggler.collapsed .navbar-toggler-icon { background-image: var(--navbar-toggler-icon-closed); }
+			.navbar_mobile { width:100%; max-width:1320px; padding:0 1.5rem; }
 			@media (max-width: 768px) {
+				.navbar-toggler { margin-top: 15px !important; }
+				.nav-link { padding-top:8px !important; }
 				.navbar-collapse { height:calc(100dvh - 56px);  }
 				.bg-color-change {background-color: var(--bluebg) !important; }
+				.navbar_mobile { padding: 0 0.5rem !important; }
 			}
 			
 			header#header { background-image: url('assets/ss-banner-bg.jpg'); background-size: cover; background-position: center center; min-height: 50vh; position:relative; background-color: #00429A; }
@@ -240,7 +246,7 @@
 			@media ( max-width: 768px ) {
 				nav.navbar { flex-wrap: nowrap; align-items: flex-start; }
 				.navbar-collapse { position: absolute; background-color: var(--bluebg); width: 100%; padding: 2vw 6vw; top: 56px; left: 0; }
-				.nav-link { font-size: 1.5rem; }
+				.nav-link { font-size: 2rem; }
 				.media_meta_wrapper h3 { font-size: 1.15rem; }
 				.media_meta_wrapper p { font-size: 0.9rem; }
 				.media_overlay { height: 80%; }
@@ -257,14 +263,14 @@
 			<div class="row">
 				<div class="col d-flex flex-column justify-content-between" style="z-index: 9;">
 					<nav id="top_Nav" class="navbar navbar-dark navbar-expand-md justify-content-center px-3 fixed-top" style="background-color: rgba(23,43,82,0);">
-						<div class="d-flex justify-content-between my-auto" style="width:100%; max-width:1320px;padding:0 1.5rem;">
+						<div class="d-flex justify-content-between my-auto navbar_mobile">
 						<div id="topLogo" class="sslogo text-white d-none d-md-block" style="opacity: 0;"><span>Scott</span><br>Schiller</div>
 						<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
 						  <span class="navbar-toggler-icon"></span>
 						</button>
 						
 						<div class="collapse navbar-collapse" id="navbarScroll">
-							<div class="sslogo text-white d-block d-md-none mt-3" style="opacity: 0.979125;"><span>Scott</span><br>Schiller</div>
+							<div class="sslogo text-white d-block d-md-none mt-4" style="opacity: 0.979125;"><span>Scott</span><br>Schiller</div>
 						  <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll d-flex justify-content-end">
 							<li class="nav-item me-md-3">
 							  <a class="nav-link" href="#about">About</a>
