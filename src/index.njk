@@ -55,7 +55,8 @@
 			
 			nav#top_Nav {
 			  box-shadow: 0px 5px 8px -5px rgba(0, 0, 0, 0);
-			  transition: box-shadow 0.3s; /* Smooth transition for box-shadow change */
+			  transition: all 0.3s; 
+			  padding-top: 32px;
 			}
 
 			
@@ -77,14 +78,6 @@
 			.navbar-toggler .navbar-toggler-icon { background-image: var(--navbar-toggler-icon-open); }
 			.navbar-toggler.collapsed .navbar-toggler-icon { background:none !important; }
 			.navbar_mobile { width:100%; max-width:1320px; padding:0 1.5rem; }
-			@media (max-width: 768px) {
-				.navbar-toggler { margin-top: 15px !important; }
-				.nav-link { padding-top:8px !important; }
-				.navbar-collapse { height:calc(100dvh - 56px);  }
-				.bg-color-change {background-color: #FFF !important; }
-				.navbar_mobile { padding: 0 0.5rem !important; }
-			}
-			
 			header#header { background-image: url('assets/banner-bg.webp'); background-size: cover; background-position: center center; min-height: 50vh; position:relative; background-color: #91A5AA; }
 			
 			@keyframes bgScott {
@@ -92,8 +85,10 @@
 			  100% { opacity: 1; bottom:0; }
 			}
 			
+			@media (min-width:768px) {
 				header#header .container,
 				header#header .container .row { min-height:50vh; }
+			}
 				header#header h1 { font-size: clamp(3.25rem, 1.4759rem + 7.1108vw, 7.5rem); margin-top:34vh; animation: bgScott 1s; }
 					header#header h1 span { font-family: var(--body_font) !important; font-weight:300; }
 				header#header h5 { color: #FFF; font-family: var(--body_font); font-weight: 400; animation: bgScott 1s; font-size: 1.25rem; }
@@ -251,8 +246,12 @@
 				/* #navbarScroll { display:inline-block !important; } */
 			}	
 			@media ( max-width: 768px ) {
+				#mobileLogo { max-width: 82px; height: auto; }
 				nav.navbar { flex-wrap: nowrap; align-items: flex-start; }
-				.navbar-collapse { position: absolute; background-color: #FFF; width: 100%; padding: 7vh 4vw 2vh; top: 56px; left: 0; }
+				.navbar-collapse { position: absolute; background-color: #FFF; width: 100%; padding: 9vh 4vw 2vh; top: 0; left: 0; height: 100dvh; }
+				.nav-link { padding-top:8px !important; }
+				.bg-color-change {background-color: #FFF !important; }
+				.navbar_mobile { padding: 0 0.5rem !important; }
 				.nav-link,
 				.mnav_contact { font-size: 2rem; color: var(--body-on-lightbg); }
 				.media_meta_wrapper h3 { font-size: 1.15rem; }
@@ -275,37 +274,43 @@
 				<div class="col d-flex flex-column justify-content-between" style="z-index: 9;">
 					<nav id="top_Nav" class="navbar navbar-dark navbar-expand-md justify-content-center px-3 fixed-top" style="background-color: rgba(23,255,255,0);">
 						<div class="d-flex justify-content-between my-auto navbar_mobile">
-						<div id="topLogo" class="sslogo d-none d-md-block"><img src="assets/S350-logo.png" alt="S350 Media Advisors" width="292" height="134" loading="lazy" class="header_logo" /></div>
-						<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-						  <span class="navbar-toggler-icon">
-							  <svg xmlns="http://www.w3.org/2000/svg" class="ntisvg" fill="none" viewBox="0 0 34 28"><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M1.25 1.75h31.5M1.25 14h31.5M1.25 26.25h31.5"/></svg></span>
-						</button>
+							<div id="topLogo" class="sslogo d-none d-md-block"><img src="assets/S350-logo.png" alt="S350 Media Advisors" width="292" height="134" loading="lazy" class="header_logo" /></div>
+							
+							<div class="d-flex w-100 justify-content-between align-items-center" style="z-index: 3;">
+								<img src="assets/S350-logo.png" alt="S350 Media Advisors" width="292" height="134" loading="lazy" id="mobileLogo" class="d-md-none" />
+								<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+						    		<span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" class="ntisvg" fill="none" viewBox="0 0 34 28"><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M1.25 1.75h31.5M1.25 14h31.5M1.25 26.25h31.5"/></svg></span>
+								</button>
+							</div>
 						
-						<div class="collapse navbar-collapse" id="navbarScroll">
-							<div class="sslogo d-block d-md-none mb-4"><img src="assets/S350-logo.png" alt="S350 Media Advisors" width="292" height="134" loading="lazy" class="header_logo" /></div>
-						  <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll d-flex justify-content-end">
-							<li class="nav-item me-md-3">
-							  <a class="nav-link" href="#about">About</a>
-							</li>
-							<li class="nav-item me-md-3">
-							  <a class="nav-link" href="#services">Services</a>
-							</li>
-							<li class="nav-item me-md-3">
-							  <a class="nav-link" href="#scott_says">Scott Says</a>
-							</li>
-							<li class="nav-item me-md-3">
-							  <a class="nav-link" href="#contact">Contact</a>
-							</li>
-							<li class="nav-item d-none d-md-block">
-							  <a class="nav-link" href="https://www.linkedin.com/in/scottschiller/" target="_blank" rel="nofollow noopener" title="Follow Scott Schiller on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="li_icon_nav" style="width:1.5rem;"><title>LinkedIn icon</title><path d="M20.7273 0H3.27273C2.40475 0 1.57232.344804.95856.95856.344804 1.57232 0 2.40475 0 3.27273V20.7273c0 .868.344804 1.7004.95856 2.3141.61376.6138 1.44619.9586 2.31417.9586H20.7273c.868 0 1.7004-.3448 2.3141-.9586.6138-.6137.9586-1.4461.9586-2.3141V3.27273c0-.86798-.3448-1.70041-.9586-2.31417C22.4277.344804 21.5953 0 20.7273 0ZM8.18182 18.9927a.505551.505551 0 0 1-.03812.194.504925.504925 0 0 1-.10958.1646.50466.50466 0 0 1-.16429.1101c-.06147.0255-.12737.0386-.19392.0386H5.52a.506044.506044 0 0 1-.19434-.0382c-.06162-.0255-.11762-.0628-.16476-.11-.04714-.0471-.0845-.1031-.10993-.1647-.02542-.0617-.03842-.1277-.03824-.1944V9.95455c0-.13454.05344-.26357.14857-.3587.09514-.09513.22416-.14858.3587-.14858h2.15591a.50726.50726 0 0 1 .35781.14906.50726.50726 0 0 1 .1481.35822v9.03815ZM6.59727 8.59091a2.04542 2.04542 0 0 1-1.13639-.34472 2.045555 2.045555 0 0 1-.75336-.91797 2.045456 2.045456 0 0 1-.1164-1.18181 2.045516 2.045516 0 0 1 .5598-1.04731 2.045526 2.045526 0 0 1 1.0473-.5598 2.04553 2.04553 0 0 1 1.18181.1164c.37376.15482.69322.41699.91798.75336a2.0455 2.0455 0 0 1 .34472 1.13639c0 .54249-.2155 1.06276-.5991 1.44636-.3836.3836-.90387.5991-1.44636.5991ZM19.4509 19.0282c.0002.0613-.0118.122-.0351.1787-.0234.0566-.0577.1081-.1011.1515-.0433.0433-.0948.0776-.1515.101-.0566.0234-.1174.0353-.1787.0351h-2.3181c-.0613.0002-.1221-.0117-.1787-.0351-.0567-.0234-.1082-.0577-.1515-.101-.0433-.0434-.0777-.0949-.1011-.1515-.0233-.0567-.0353-.1174-.0351-.1787v-4.2341c0-.6327.1855-2.7709-1.6541-2.7709-1.425 0-1.7154 1.4632-1.7727 2.1204v4.89c0 .1226-.0482.2402-.1342.3274-.086.0873-.2029.1372-.3254.139h-2.2391c-.0611 0-.12171-.0121-.17822-.0355a.466322.466322 0 0 1-.15102-.1012.464378.464378 0 0 1-.10071-.1513.465136.465136 0 0 1-.035-.1784V9.915a.464987.464987 0 0 1 .035-.17837.465096.465096 0 0 1 .10071-.15132.465228.465228 0 0 1 .15102-.10115.465166.465166 0 0 1 .17822-.03552h2.2391c.1237 0 .2423.04913.3298.13659.0875.08746.1366.20608.1366.32977v.7882c.5291-.79502 1.3132-1.40593 2.9864-1.40593 3.7063 0 3.6818 3.46093 3.6818 5.36183l.0027 4.3691Z"/></svg></a>
-							</li>
-						  </ul>
+							<div class="collapse navbar-collapse" id="navbarScroll">
+								<div class="w-100 mb-2 d-flex justify-content-between align-items-center">
+									<div class="sslogo pt-3"><img src="assets/S350-logo.png" alt="S350 Media Advisors" width="292" height="134" loading="lazy" style="max-width:100px; height:auto;" /></div>
+									<a class="nav-link" href="https://www.linkedin.com/in/scottschiller/" target="_blank" rel="nofollow noopener" title="Follow Scott Schiller on LinkedIn" style="padding-top:0 !important;"><svg xmlns="http://www.w3.org/2000/svg" fill="#172B52" viewBox="0 0 24 24" style="width:2.5rem;"><title>LinkedIn icon</title><path d="M20.7273 0H3.27273C2.40475 0 1.57232.344804.95856.95856.344804 1.57232 0 2.40475 0 3.27273V20.7273c0 .868.344804 1.7004.95856 2.3141.61376.6138 1.44619.9586 2.31417.9586H20.7273c.868 0 1.7004-.3448 2.3141-.9586.6138-.6137.9586-1.4461.9586-2.3141V3.27273c0-.86798-.3448-1.70041-.9586-2.31417C22.4277.344804 21.5953 0 20.7273 0ZM8.18182 18.9927a.505551.505551 0 0 1-.03812.194.504925.504925 0 0 1-.10958.1646.50466.50466 0 0 1-.16429.1101c-.06147.0255-.12737.0386-.19392.0386H5.52a.506044.506044 0 0 1-.19434-.0382c-.06162-.0255-.11762-.0628-.16476-.11-.04714-.0471-.0845-.1031-.10993-.1647-.02542-.0617-.03842-.1277-.03824-.1944V9.95455c0-.13454.05344-.26357.14857-.3587.09514-.09513.22416-.14858.3587-.14858h2.15591a.50726.50726 0 0 1 .35781.14906.50726.50726 0 0 1 .1481.35822v9.03815ZM6.59727 8.59091a2.04542 2.04542 0 0 1-1.13639-.34472 2.045555 2.045555 0 0 1-.75336-.91797 2.045456 2.045456 0 0 1-.1164-1.18181 2.045516 2.045516 0 0 1 .5598-1.04731 2.045526 2.045526 0 0 1 1.0473-.5598 2.04553 2.04553 0 0 1 1.18181.1164c.37376.15482.69322.41699.91798.75336a2.0455 2.0455 0 0 1 .34472 1.13639c0 .54249-.2155 1.06276-.5991 1.44636-.3836.3836-.90387.5991-1.44636.5991ZM19.4509 19.0282c.0002.0613-.0118.122-.0351.1787-.0234.0566-.0577.1081-.1011.1515-.0433.0433-.0948.0776-.1515.101-.0566.0234-.1174.0353-.1787.0351h-2.3181c-.0613.0002-.1221-.0117-.1787-.0351-.0567-.0234-.1082-.0577-.1515-.101-.0433-.0434-.0777-.0949-.1011-.1515-.0233-.0567-.0353-.1174-.0351-.1787v-4.2341c0-.6327.1855-2.7709-1.6541-2.7709-1.425 0-1.7154 1.4632-1.7727 2.1204v4.89c0 .1226-.0482.2402-.1342.3274-.086.0873-.2029.1372-.3254.139h-2.2391c-.0611 0-.12171-.0121-.17822-.0355a.466322.466322 0 0 1-.15102-.1012.464378.464378 0 0 1-.10071-.1513.465136.465136 0 0 1-.035-.1784V9.915a.464987.464987 0 0 1 .035-.17837.465096.465096 0 0 1 .10071-.15132.465228.465228 0 0 1 .15102-.10115.465166.465166 0 0 1 .17822-.03552h2.2391c.1237 0 .2423.04913.3298.13659.0875.08746.1366.20608.1366.32977v.7882c.5291-.79502 1.3132-1.40593 2.9864-1.40593 3.7063 0 3.6818 3.46093 3.6818 5.36183l.0027 4.3691Z"/></svg></a>
+								</div>
+						  		<ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll d-flex justify-content-end">
+									<li class="nav-item me-md-3">
+							  		<a class="nav-link" href="#about">About</a>
+									</li>
+									<li class="nav-item me-md-3">
+							  		<a class="nav-link" href="#services">Services</a>
+									</li>
+									<li class="nav-item me-md-3">
+							  		<a class="nav-link" href="#scott_says">Scott Says</a>
+									</li>
+									<li class="nav-item me-md-3">
+							  		<a class="nav-link" href="#contact">Contact</a>
+									</li>
+									<li class="nav-item d-none d-md-block">
+							  		<a class="nav-link" href="https://www.linkedin.com/in/scottschiller/" target="_blank" rel="nofollow noopener" title="Follow Scott Schiller on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="li_icon_nav" style="width:1.5rem;"><title>LinkedIn icon</title><path d="M20.7273 0H3.27273C2.40475 0 1.57232.344804.95856.95856.344804 1.57232 0 2.40475 0 3.27273V20.7273c0 .868.344804 1.7004.95856 2.3141.61376.6138 1.44619.9586 2.31417.9586H20.7273c.868 0 1.7004-.3448 2.3141-.9586.6138-.6137.9586-1.4461.9586-2.3141V3.27273c0-.86798-.3448-1.70041-.9586-2.31417C22.4277.344804 21.5953 0 20.7273 0ZM8.18182 18.9927a.505551.505551 0 0 1-.03812.194.504925.504925 0 0 1-.10958.1646.50466.50466 0 0 1-.16429.1101c-.06147.0255-.12737.0386-.19392.0386H5.52a.506044.506044 0 0 1-.19434-.0382c-.06162-.0255-.11762-.0628-.16476-.11-.04714-.0471-.0845-.1031-.10993-.1647-.02542-.0617-.03842-.1277-.03824-.1944V9.95455c0-.13454.05344-.26357.14857-.3587.09514-.09513.22416-.14858.3587-.14858h2.15591a.50726.50726 0 0 1 .35781.14906.50726.50726 0 0 1 .1481.35822v9.03815ZM6.59727 8.59091a2.04542 2.04542 0 0 1-1.13639-.34472 2.045555 2.045555 0 0 1-.75336-.91797 2.045456 2.045456 0 0 1-.1164-1.18181 2.045516 2.045516 0 0 1 .5598-1.04731 2.045526 2.045526 0 0 1 1.0473-.5598 2.04553 2.04553 0 0 1 1.18181.1164c.37376.15482.69322.41699.91798.75336a2.0455 2.0455 0 0 1 .34472 1.13639c0 .54249-.2155 1.06276-.5991 1.44636-.3836.3836-.90387.5991-1.44636.5991ZM19.4509 19.0282c.0002.0613-.0118.122-.0351.1787-.0234.0566-.0577.1081-.1011.1515-.0433.0433-.0948.0776-.1515.101-.0566.0234-.1174.0353-.1787.0351h-2.3181c-.0613.0002-.1221-.0117-.1787-.0351-.0567-.0234-.1082-.0577-.1515-.101-.0433-.0434-.0777-.0949-.1011-.1515-.0233-.0567-.0353-.1174-.0351-.1787v-4.2341c0-.6327.1855-2.7709-1.6541-2.7709-1.425 0-1.7154 1.4632-1.7727 2.1204v4.89c0 .1226-.0482.2402-.1342.3274-.086.0873-.2029.1372-.3254.139h-2.2391c-.0611 0-.12171-.0121-.17822-.0355a.466322.466322 0 0 1-.15102-.1012.464378.464378 0 0 1-.10071-.1513.465136.465136 0 0 1-.035-.1784V9.915a.464987.464987 0 0 1 .035-.17837.465096.465096 0 0 1 .10071-.15132.465228.465228 0 0 1 .15102-.10115.465166.465166 0 0 1 .17822-.03552h2.2391c.1237 0 .2423.04913.3298.13659.0875.08746.1366.20608.1366.32977v.7882c.5291-.79502 1.3132-1.40593 2.9864-1.40593 3.7063 0 3.6818 3.46093 3.6818 5.36183l.0027 4.3691Z"/></svg></a>
+									</li>
+						  		</ul>
 						  <div class="d-block d-md-none d-flex flex-column justify-content-end flex-grow-1 pb-4">
 							  <h3 class="mb-0 pb-0 lh-1" style="font-size:2.5rem;">Let's talk</h3>
 							  <p class="fs-3"><a class="mnav_contact" href="mailto:hello@scottyschiller.com">hello@scottyschiller.com</a></p>
 						  </div>
 						</div>
-						<a class="nav-link d-block d-md-none" href="https://www.linkedin.com/in/scottschiller/" target="_blank" rel="nofollow noopener" title="Follow Scott Schiller on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="li_icon_nav" style="width:2.5rem;"><title>LinkedIn icon</title><path d="M20.7273 0H3.27273C2.40475 0 1.57232.344804.95856.95856.344804 1.57232 0 2.40475 0 3.27273V20.7273c0 .868.344804 1.7004.95856 2.3141.61376.6138 1.44619.9586 2.31417.9586H20.7273c.868 0 1.7004-.3448 2.3141-.9586.6138-.6137.9586-1.4461.9586-2.3141V3.27273c0-.86798-.3448-1.70041-.9586-2.31417C22.4277.344804 21.5953 0 20.7273 0ZM8.18182 18.9927a.505551.505551 0 0 1-.03812.194.504925.504925 0 0 1-.10958.1646.50466.50466 0 0 1-.16429.1101c-.06147.0255-.12737.0386-.19392.0386H5.52a.506044.506044 0 0 1-.19434-.0382c-.06162-.0255-.11762-.0628-.16476-.11-.04714-.0471-.0845-.1031-.10993-.1647-.02542-.0617-.03842-.1277-.03824-.1944V9.95455c0-.13454.05344-.26357.14857-.3587.09514-.09513.22416-.14858.3587-.14858h2.15591a.50726.50726 0 0 1 .35781.14906.50726.50726 0 0 1 .1481.35822v9.03815ZM6.59727 8.59091a2.04542 2.04542 0 0 1-1.13639-.34472 2.045555 2.045555 0 0 1-.75336-.91797 2.045456 2.045456 0 0 1-.1164-1.18181 2.045516 2.045516 0 0 1 .5598-1.04731 2.045526 2.045526 0 0 1 1.0473-.5598 2.04553 2.04553 0 0 1 1.18181.1164c.37376.15482.69322.41699.91798.75336a2.0455 2.0455 0 0 1 .34472 1.13639c0 .54249-.2155 1.06276-.5991 1.44636-.3836.3836-.90387.5991-1.44636.5991ZM19.4509 19.0282c.0002.0613-.0118.122-.0351.1787-.0234.0566-.0577.1081-.1011.1515-.0433.0433-.0948.0776-.1515.101-.0566.0234-.1174.0353-.1787.0351h-2.3181c-.0613.0002-.1221-.0117-.1787-.0351-.0567-.0234-.1082-.0577-.1515-.101-.0433-.0434-.0777-.0949-.1011-.1515-.0233-.0567-.0353-.1174-.0351-.1787v-4.2341c0-.6327.1855-2.7709-1.6541-2.7709-1.425 0-1.7154 1.4632-1.7727 2.1204v4.89c0 .1226-.0482.2402-.1342.3274-.086.0873-.2029.1372-.3254.139h-2.2391c-.0611 0-.12171-.0121-.17822-.0355a.466322.466322 0 0 1-.15102-.1012.464378.464378 0 0 1-.10071-.1513.465136.465136 0 0 1-.035-.1784V9.915a.464987.464987 0 0 1 .035-.17837.465096.465096 0 0 1 .10071-.15132.465228.465228 0 0 1 .15102-.10115.465166.465166 0 0 1 .17822-.03552h2.2391c.1237 0 .2423.04913.3298.13659.0875.08746.1366.20608.1366.32977v.7882c.5291-.79502 1.3132-1.40593 2.9864-1.40593 3.7063 0 3.6818 3.46093 3.6818 5.36183l.0027 4.3691Z"/></svg></a>
+						
 						</div>
 					</nav>
 					<h1 class="text-center text-light" >Scott Schiller</h1>
@@ -646,8 +651,10 @@
 			$('.navbar-toggler').click(function() {
 				if ($(this).hasClass('collapsed')) {
 			  		$('.ntisvg').css('display', '');
+					$('#mobileLogo').css('display','');
 				} else {
 			  		$('.ntisvg').css('display', 'none');
+					$('#mobileLogo').css('display','none');
 				}
 		  });
 		  var windowHeight = $(window).height(); // Get the height of the window
@@ -667,6 +674,7 @@
 				var colorB = Math.floor(255 - (255 - 82) * scrollRatio); // Blue (from 255 to 82)
 				var colorRGB = 'rgb(' + colorR + ',' + colorG + ',' + colorB + ')';
 				var alpha = scrollRatio * 0.2;
+				var paddingTop = 32 - (24 * scrollRatio); // 32px to 8px
 			
 				// Apply the color to text and SVG paths
 				if ($(window).width() > 768) {
@@ -674,6 +682,7 @@
 				}
 				$('.nav-link .li_icon_nav path').css('fill', colorRGB);
 				$('.ntisvg path').css('stroke',colorRGB);
+				$('#top_Nav').css('padding-top', paddingTop + 'px');
 				$('nav#top_Nav').css('box-shadow', '0px 5px 8px -5px rgba(0, 0, 0,' + alpha + ')');
 		  });
 		});
